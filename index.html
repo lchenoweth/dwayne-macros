@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Macros">
+<meta name="application-name" content="Macros">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#14171C">
+<title>Dwayne's Macros</title>
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#2E5A9C; --pink2:#8FB3E8; --ink:#14171C;
+  --bg:#ECEEF1; --card:#FFFFFF; --text:#14171C; --muted:#5E6773; --line:#D9DEE5; --chip:#E3E7EC;
+  --good:#22A866; --over:#D93A4E; --block:#14171C; --blockText:#FFFFFF; --blockMuted:#A3ABB8; --blockLine:#2B3039;
+  --shadow:0 1px 0 rgba(20,23,28,.04),0 8px 24px rgba(20,23,28,.07);
+  --head:'Oswald','Arial Narrow',-apple-system,system-ui,sans-serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#0E1013; --card:#1A1E24; --text:#E9EDF2; --muted:#98A1AE; --line:#262B33; --chip:#232831;
+  --block:#14171C; --blockLine:#2B3039; --shadow:0 0 0 1px #232831;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg)}
+body{font-family:var(--body);color:var(--text);font-size:16px;line-height:1.4;touch-action:manipulation;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+body.noscroll{overflow:hidden}
+h1,h2,h3{font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin:0}
+h1{font-size:26px;font-weight:900}
+h2{font-size:17px}
+h3{font-size:13px;color:var(--muted);letter-spacing:.08em}
+button{font-family:inherit;font-size:16px;color:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
+.screen{display:none;max-width:640px;margin:0 auto;
+  padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 14px) calc(100px + env(safe-area-inset-bottom)) calc(env(safe-area-inset-left) + 14px)}
+.screen.active{display:block}
+.card{background:var(--card);border-radius:20px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}
+.block{background:var(--block);color:var(--blockText);border:1px solid var(--blockLine)}
+.card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.card-h .sub{font-size:13px;color:var(--muted);font-weight:600}
+.hint{font-size:14px;color:var(--muted);margin:10px 0 0}
+.tag{display:inline-block;font:800 11px var(--head);text-transform:uppercase;letter-spacing:.08em;padding:5px 9px;border-radius:999px;background:var(--pink);color:#fff}
+.tag.ghost{background:var(--chip);color:var(--muted)}
+.btn{min-height:48px;padding:0 18px;border-radius:14px;border:0;background:var(--chip);color:var(--text);font:800 14px var(--head);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.primary{background:var(--pink);color:#fff}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.outline{background:transparent;border:2px solid var(--pink);color:var(--pink)}
+.btn.danger{background:transparent;color:var(--over);border:2px solid var(--over)}
+.btn.sm{min-height:40px;padding:0 14px;font-size:12px;border-radius:12px}
+.btn.wide{width:100%}
+.btn:active,.mixbtn:active{transform:scale(.97)}
+.btn svg{width:16px;height:16px}
+
+.topbar{display:flex;flex-direction:column;gap:8px;margin-bottom:4px}
+.challenge{font:800 12px var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--pink)}
+.daynav{display:flex;align-items:center;gap:8px}
+.navbtn{width:48px;height:48px;border-radius:14px;border:0;background:var(--card);box-shadow:var(--shadow);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.daylabel{flex:1;text-align:center}
+.daylabel .dl-main{font:900 22px var(--head);text-transform:uppercase;letter-spacing:.02em}
+.daylabel .dl-sub{font-size:13px;color:var(--muted);font-weight:600}
+.todaylink{align-self:center}
+
+.budget .calrow{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:14px}
+.bignum{font:900 44px/1 var(--head);letter-spacing:-.01em}
+.biglbl{font:800 11px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--pink2);margin-top:6px}
+.calmeta{text-align:right;font-size:13px;color:var(--blockMuted)}
+.calmeta b{color:#fff}
+.mac{margin-top:12px}
+.mac-top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;margin-bottom:6px}
+.mac-name{font:800 12px var(--head);text-transform:uppercase;letter-spacing:.08em}
+.mac-val{color:var(--blockMuted)}
+.mac-val b{color:#fff}
+.bar{position:relative;height:12px;border-radius:8px;background:#2B3039;overflow:hidden}
+.bar .band{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.12)}
+.bar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--pink)}
+.bar .fill.on{background:var(--good)}
+.bar .fill.over{background:var(--over)}
+.bar .tick{position:absolute;top:-2px;bottom:-2px;width:2px;background:#fff;opacity:.8}
+.st{font:700 12px var(--body);padding:3px 8px;border-radius:999px;white-space:nowrap}
+.st.on{background:rgba(34,168,102,.18);color:#3DDC8A}
+.st.left{background:rgba(143,179,232,.16);color:var(--pink2)}
+.st.over{background:rgba(217,58,78,.2);color:#FF7385}
+.card:not(.block) .st.on{color:var(--good)}
+.card:not(.block) .st.left{color:var(--pink)}
+.card:not(.block) .st.over{color:var(--over)}
+.eatenline{margin-top:14px;padding-top:12px;border-top:1px solid var(--blockLine);font-size:13px;color:var(--blockMuted)}
+
+.item{border-top:1px solid var(--line);padding:12px 0}
+.item:first-child{border-top:0}
+.item-top{display:flex;align-items:center;gap:10px}
+.check{flex:none;width:34px;height:34px;border-radius:10px;border:2px solid var(--line);background:transparent;color:transparent;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.check.on{background:var(--good);border-color:var(--good);color:#fff}
+.item-name{flex:1;min-width:0;font-weight:600}
+.item-name .sv{display:block;font-size:12px;color:var(--muted);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item.eaten .item-name{opacity:.6}
+.xmini{flex:none;width:40px;height:40px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:22px}
+.item-bot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding-left:44px}
+.macline{font-size:13px;color:var(--muted)}
+.macline b{color:var(--text);font-weight:700}
+.stepper{display:flex;align-items:center;background:var(--chip);border-radius:14px;flex:none}
+.stepper button{width:44px;height:44px;border:0;background:transparent;font-size:22px;font-weight:700;color:var(--pink)}
+.stepper span{min-width:44px;text-align:center;font-weight:800;font-size:15px}
+.empty{font-size:14px;color:var(--muted);padding:6px 0 2px}
+.row-btns{display:flex;align-items:center;gap:6px}
+.emptyrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.linkbtn{min-height:40px;padding:0 4px;border:0;background:transparent;color:var(--pink);font:700 14px var(--body)}
+.addslot{display:block;margin-top:8px}
+.skipbox{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--chip);border-radius:14px;padding:10px 12px;font-size:14px;color:var(--muted)}
+.addbtn{min-height:44px;padding:0 14px;border-radius:12px;border:2px solid var(--pink);background:transparent;color:var(--pink);font:800 12px var(--head);text-transform:uppercase;letter-spacing:.06em}
+
+.dinner{border:2px solid var(--pink)}
+.dinner-main{background:var(--chip);border-radius:16px;padding:12px;margin-bottom:12px}
+.servrow{display:flex;align-items:center;gap:12px;margin-top:10px;padding-left:44px}
+.ofserv{font-size:14px;color:var(--muted);font-weight:600}
+.suggest{display:flex;align-items:center;gap:12px;margin:0 0 12px;padding:12px;border-radius:16px;background:var(--ink);color:#fff}
+[data-theme="dark"] .suggest{border:1px solid var(--blockLine)}
+.suggest .s-txt{flex:1;font-size:14px;line-height:1.35}
+.suggest .s-txt b{font:900 16px var(--head);color:var(--pink2)}
+.suggest .s-sub{font-size:12px;color:var(--blockMuted);margin-top:2px}
+.subhead{font:800 12px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px;display:flex;align-items:center;justify-content:space-between}
+.breakdown{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+.breakdown td{padding:8px 4px;border-top:1px solid var(--line);text-align:right;white-space:nowrap}
+.breakdown td:first-child{text-align:left;font-weight:600}
+.breakdown tr.total td{font-weight:800;border-top:2px solid var(--text)}
+.breakdown th{font:800 10px var(--head);letter-spacing:.08em;color:var(--muted);text-align:right;padding:0 4px 4px}
+.breakdown th:first-child{text-align:left}
+
+.ideas .aim{background:var(--chip);border-radius:14px;padding:12px;font-size:15px;margin:10px 0}
+.ideas .aim b{font-weight:800}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);font:700 13px var(--body);color:var(--text);white-space:nowrap}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+[data-theme="dark"] .chip.on{background:var(--pink);border-color:var(--pink)}
+.idea{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.idea-txt{flex:1;min-width:0}
+.idea-name{font-weight:700;font-size:15px}
+.idea-name .q{color:var(--pink);font-weight:800}
+.fitbadge{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;color:var(--good)}
+.ideas-actions{display:flex;gap:8px;margin-top:10px}
+.ideas-actions .btn{flex:1;padding:0 10px}
+.modeseg{display:flex;background:var(--chip);border-radius:12px;padding:3px;margin-bottom:6px}
+.modeseg button{flex:1;min-height:40px;border:0;border-radius:10px;background:transparent;font:800 11px var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.modeseg button.on{background:var(--ink);color:#fff}
+[data-theme="dark"] .modeseg button.on{background:var(--pink)}
+.pl{border-top:1px solid var(--line);padding:12px 0}
+.pl.first{border-top:0}
+.pl-h{margin-bottom:4px}
+.pl-h .mac-name{color:var(--pink)}
+.pl-body{display:flex;align-items:center;gap:8px}
+.pl-txt{flex:1;min-width:0}
+.pl-none{font-size:14px;color:var(--muted)}
+.mixbtn{min-height:40px;padding:0 11px;border-radius:12px;border:0;background:var(--chip);color:var(--text);font:800 11px var(--head);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:5px;flex:none}
+.mixbtn svg{width:15px;height:15px}
+.proj{background:var(--chip);border-radius:14px;padding:12px;margin-top:6px}
+.proj-t{font:800 11px var(--head);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px}
+.proj-v{font-size:14px;font-weight:600;margin-bottom:8px}
+.proj-b{display:flex;flex-wrap:wrap;gap:6px}
+
+.pagehead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 0 12px}
+.search{width:100%;min-height:50px;border-radius:14px;border:2px solid var(--line);background:var(--card);padding:0 14px;outline:none}
+.search:focus{border-color:var(--pink)}
+.libitem{width:100%;display:flex;align-items:center;gap:12px;text-align:left;border:0;background:var(--card);border-radius:16px;padding:14px;margin:8px 0;box-shadow:var(--shadow);min-height:64px}
+.libitem .li-main{flex:1;min-width:0}
+.libitem .li-name{font-weight:700}
+.libitem .li-sub{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.libitem .li-cal{font:900 18px var(--head);text-align:right}
+.libitem .li-cal small{display:block;font:600 11px var(--body);color:var(--muted)}
+.libcount{font-size:13px;color:var(--muted);margin:6px 2px}
+
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.field label{font:800 11px var(--head);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.field input,.field select,.field textarea{min-height:50px;border-radius:14px;border:2px solid var(--line);background:var(--card);padding:0 14px;outline:none;width:100%}
+.field textarea{padding:12px 14px;min-height:110px;font-size:13px;font-family:ui-monospace,Menlo,monospace}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pink)}
+.seg{display:flex;background:var(--chip);border-radius:14px;padding:4px}
+.seg button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font:800 12px var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.seg button.on{background:var(--ink);color:#fff}
+[data-theme="dark"] .seg button.on{background:var(--pink)}
+.boardcount{display:flex;align-items:baseline;gap:6px}
+.boardcount .bignum{color:var(--pink2)}
+.boardcount span{font:800 18px var(--head);color:var(--blockMuted)}
+.board{display:grid;grid-template-columns:34px repeat(7,1fr);gap:6px;margin-top:14px}
+.board .wk{font:800 10px var(--head);color:var(--blockMuted);display:flex;align-items:center;letter-spacing:.06em}
+.board .dh{font:800 10px var(--head);color:var(--blockMuted);text-align:center;letter-spacing:.06em}
+.cell{aspect-ratio:1;border-radius:10px;border:0;background:#20252D;color:#808A97;font:800 13px var(--head);display:flex;align-items:center;justify-content:center;padding:0}
+.cell.miss{background:#2B3039;color:#B7BFCA}
+.cell.hit{background:var(--pink);color:#fff}
+.cell.today{outline:2px solid var(--pink2);outline-offset:2px}
+.legend{display:flex;gap:14px;margin-top:12px;font-size:12px;color:var(--blockMuted);flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;vertical-align:-2px;margin-right:5px}
+.ver{font:800 11px var(--head);letter-spacing:.08em;color:var(--muted);background:var(--chip);padding:5px 9px;border-radius:999px}
+.footer{text-align:center;font-size:12px;color:var(--muted);margin:18px 0 0}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);border-top:3px solid var(--pink);display:flex;
+  padding:6px calc(env(safe-area-inset-right) + 8px) calc(env(safe-area-inset-bottom) + 6px) calc(env(safe-area-inset-left) + 8px)}
+.tab{flex:1;min-height:58px;border:0;background:transparent;color:#A3ABB8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:800 11px var(--head);text-transform:uppercase;letter-spacing:.1em}
+.tab svg{width:24px;height:24px}
+.tab.active{color:var(--pink2)}
+
+.backdrop{position:fixed;inset:0;z-index:40;background:rgba(8,10,13,.62);opacity:0;pointer-events:none;transition:opacity .22s}
+.backdrop.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:41;max-width:640px;margin:0 auto;max-height:90vh;max-height:90dvh;display:flex;flex-direction:column;
+  background:var(--card);border-radius:24px 24px 0 0;transform:translateY(105%);transition:transform .26s cubic-bezier(.2,.8,.2,1);padding-bottom:env(safe-area-inset-bottom);visibility:hidden}
+.sheet.open{transform:translateY(0);visibility:visible}
+.sheet-head{flex:none;padding:10px 16px 12px;border-bottom:1px solid var(--line);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.grab{width:46px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 10px}
+.sheet-titlerow{display:flex;align-items:center;gap:10px}
+.sheet-titlerow h2{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xbtn{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--chip);font-size:24px;line-height:1;color:var(--text)}
+.sheet-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:14px 16px 24px}
+.addgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.addgrid .btn{min-height:50px;font-size:12px}
+.addgrid .btn.dinner{background:var(--ink);color:#fff}
+.divider{height:1px;background:var(--line);margin:18px 0}
+.calc{font-size:13px;color:var(--pink);font-weight:600;margin:-4px 0 10px}
+.pick{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:0;background:var(--chip);border-radius:14px;padding:12px 14px;margin:8px 0;min-height:60px}
+.pick .li-main{flex:1;min-width:0}
+.pick .li-name{font-weight:700}
+.pick .li-sub{font-size:12px;color:var(--muted)}
+.pick .plus{font:900 22px var(--head);color:var(--pink)}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translate(-50%,20px);z-index:60;background:var(--ink);color:#fff;border:1px solid var(--pink);padding:12px 18px;border-radius:14px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:all .2s;max-width:88vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+[data-theme="dark"] .linkbtn,[data-theme="dark"] .challenge,[data-theme="dark"] .addbtn{color:#8FB3E8}
+[data-theme="dark"] .addbtn,[data-theme="dark"] .btn.outline{border-color:#8FB3E8;color:#8FB3E8}
+.fast .card-h{margin-bottom:6px}
+.toggle{width:56px;height:32px;border-radius:999px;border:0;background:#2B3039;position:relative;flex:none;padding:0}
+.toggle span{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#E9EDF2;transition:left .2s}
+.toggle.on{background:var(--pink)}
+.toggle.on span{left:27px}
+.fast-big{font:700 40px/1 var(--head);letter-spacing:.01em;margin-top:4px}
+.fast-lbl{font:700 12px var(--head);text-transform:uppercase;letter-spacing:.1em;color:var(--pink2);margin:6px 0 10px}
+.fast-bar{margin-bottom:8px}
+.fast-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--blockMuted);margin-bottom:10px}
+.fast-chips .chip{background:transparent;color:#E9EDF2;border-color:#2B3039}
+.fast-chips .chip.on{background:var(--pink);border-color:var(--pink)}
+.fast-custom{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--blockMuted);flex:none}
+.fast-custom input,.fast-edit input{width:72px;min-height:40px;border-radius:10px;border:1px solid #2B3039;background:#0E1013;color:#E9EDF2;padding:0 8px}
+.fast-edit{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--blockMuted)}
+.fast-edit input{width:auto}
+@media (prefers-reduced-motion: reduce){.toggle span{transition:none}}
+</style>
+</head>
+<body>
+
+<section id="screen-today" class="screen active"></section>
+<section id="screen-library" class="screen"></section>
+<section id="screen-targets" class="screen"></section>
+
+<nav class="tabbar">
+  <button class="tab active" data-act="tab" data-tab="today">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Today</button>
+  <button class="tab" data-act="tab" data-tab="library">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Library</button>
+  <button class="tab" data-act="tab" data-tab="targets">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>Targets</button>
+</nav>
+
+<div id="backdrop" class="backdrop"></div>
+<div id="sheet" class="sheet" role="dialog" aria-modal="true">
+  <div id="sheetHead" class="sheet-head">
+    <div class="grab"></div>
+    <div class="sheet-titlerow"><h2 id="sheetTitle"></h2><button class="xbtn" data-act="closeSheet" aria-label="Close">&times;</button></div>
+  </div>
+  <div id="sheetBody" class="sheet-body"></div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= CONSTANTS ================= */
+var APP_VERSION = '1.1.0';
+var KEY = 'dwaynePlanner.v1';
+var MAC = ['cal','p','c','f'];
+var MEALS = [
+  {key:'first', label:'First Thing'},
+  {key:'breakfast', label:'Breakfast'},
+  {key:'lunch', label:'Lunch'},
+  {key:'snacks', label:'Snacks'},
+  {key:'post', label:'Post-Workout'}
+];
+var PLAN_MEALS = ['breakfast','lunch','snacks','post'];
+var WEIGHTS = {breakfast:32, lunch:36, snacks:22, post:10};
+var EXTRA_SNACK_W = 14, MAX_SNACKS = 4;
+function isSnack(k){ return k==='snacks' || /^snacks\d+$/.test(k); }
+function wt(k){ return isSnack(k) && k!=='snacks' ? EXTRA_SNACK_W : (WEIGHTS[k]||10); }
+function affOf(k){ return AFFINITY[isSnack(k) ? 'snacks' : k] || []; }
+function extrasOf(d){ return (d && d.extraSnacks) || []; }
+function planKeys(d){ return ['breakfast','lunch','snacks'].concat(extrasOf(d)).concat(['post']); }
+function mealsOf(d){
+  var multi = extrasOf(d).length > 0;
+  return [{key:'first',label:'First Thing'},{key:'breakfast',label:'Breakfast'},{key:'lunch',label:'Lunch'},
+    {key:'snacks',label:multi?'Snack 1':'Snacks'}]
+    .concat(extrasOf(d).map(function(k){ return {key:k, label:mealLabel(k)}; }))
+    .concat([{key:'post',label:'Post-Workout'}]);
+}
+var CATS = ['Chick-fil-A','Chipotle',"Jimmy John's",'QuikTrip','Shakes & Coffee','Breakfast','Lunch','Snacks','Proteins','Sides & Extras','Dinners'];
+var AFFINITY = {
+  breakfast:['Breakfast','Shakes & Coffee','Proteins'],
+  lunch:['Lunch','Proteins'],
+  snacks:['Snacks','Shakes & Coffee'],
+  post:['Shakes & Coffee','Snacks']
+};
+var QTYS = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
+var SIDE_QTYS = [0.5, 1, 1.5, 2];
+var SCORE_W = {cal:1.5, p:1.2, c:1, f:1};
+var COFFEE = {id:'coffee', name:'Protein Coffee', serving:'1 scoop Optimum Nutrition Gold Standard Whey (Vanilla Ice Cream) in coffee',
+  cat:'Shakes & Coffee', cal:125, p:24, c:4, f:1.5, servings:null, calAuto:false};
+var MIX_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>';
+
+/* ================= MATH ================= */
+function r1(x){ x = +x || 0; return Math.round(x * 10) / 10; }
+function r2(x){ return Math.round((+x || 0) * 100) / 100; }
+function zero(){ return {cal:0,p:0,c:0,f:0}; }
+function addM(a,b){ return {cal:r1(a.cal+b.cal), p:r1(a.p+b.p), c:r1(a.c+b.c), f:r1(a.f+b.f)}; }
+function subM(a,b){ return {cal:r1(a.cal-b.cal), p:r1(a.p-b.p), c:r1(a.c-b.c), f:r1(a.f-b.f)}; }
+function scaleM(a,k){ return {cal:r1(a.cal*k), p:r1(a.p*k), c:r1(a.c*k), f:r1(a.f*k)}; }
+function clampM(a){ return {cal:Math.max(0,a.cal), p:Math.max(0,a.p), c:Math.max(0,a.c), f:Math.max(0,a.f)}; }
+function autoCal(p,c,f){ return r1(p*4 + c*4 + f*9); }
+function num(v){ if(v===null||v===undefined) return null; var s=String(v).trim().replace(',', '.'); if(s==='') return null; var x=parseFloat(s); return isFinite(x)?x:null; }
+
+/* ================= FORMAT ================= */
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function fInt(x){ return Math.round(+x||0).toLocaleString('en-US'); }
+function fG(x){ var v=r1(x); return (Math.abs(v - Math.round(v)) < 1e-9) ? String(Math.round(v)) : v.toFixed(1); }
+function fQ(q){ return String(r2(q)); }
+function macLine(m, bold){
+  var c = bold ? '<b>'+fInt(m.cal)+' cal</b>' : fInt(m.cal)+' cal';
+  return c+' · '+fG(m.p)+'P · '+fG(m.c)+'C · '+fG(m.f)+'F';
+}
+
+/* ================= DATES ================= */
+function pad(n){ return (n<10?'0':'')+n; }
+function keyOf(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function parseKey(k){ var a=k.split('-').map(Number); return new Date(a[0], a[1]-1, a[2], 12); }
+function todayKey(){ return keyOf(new Date()); }
+function addDays(k,n){ var d=parseKey(k); d.setDate(d.getDate()+n); return keyOf(d); }
+function diffDays(a,b){ return Math.round((parseKey(b)-parseKey(a))/86400000); }
+function prettyDate(k){ return parseKey(k).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+function dayName(k){
+  var n = diffDays(todayKey(), k);
+  if(n===0) return 'Today'; if(n===1) return 'Tomorrow'; if(n===-1) return 'Yesterday';
+  return parseKey(k).toLocaleDateString('en-US',{weekday:'long'});
+}
+function dayShort(k){ var n=diffDays(todayKey(),k); return n===0?'Today':n===1?'Tomorrow':n===-1?'Yesterday':prettyDate(k); }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
+
+/* ================= STATE ================= */
+var STARTER = [{"id": "d00", "name": "Grilled Nuggets (12 ct)", "serving": "12 pieces", "cat": "Chick-fil-A", "cal": 200, "p": 38, "c": 2, "f": 4.5, "servings": null, "calAuto": false}, {"id": "d01", "name": "Grilled Nuggets (8 ct)", "serving": "8 pieces", "cat": "Chick-fil-A", "cal": 130, "p": 25, "c": 1, "f": 3, "servings": null, "calAuto": false}, {"id": "d02", "name": "Grilled Chicken Sandwich", "serving": "1 sandwich", "cat": "Chick-fil-A", "cal": 390, "p": 28, "c": 45, "f": 11, "servings": null, "calAuto": false}, {"id": "d03", "name": "Grilled Cool Wrap", "serving": "1 wrap, no dressing", "cat": "Chick-fil-A", "cal": 350, "p": 42, "c": 29, "f": 13, "servings": null, "calAuto": false}, {"id": "d04", "name": "Egg White Grill", "serving": "1 sandwich", "cat": "Chick-fil-A", "cal": 290, "p": 27, "c": 31, "f": 7, "servings": null, "calAuto": false}, {"id": "d05", "name": "Market Salad w/ Grilled Filet", "serving": "no dressing", "cat": "Chick-fil-A", "cal": 320, "p": 28, "c": 26, "f": 12, "servings": null, "calAuto": false}, {"id": "d06", "name": "Kale Crunch Side", "serving": "1 side", "cat": "Chick-fil-A", "cal": 170, "p": 4, "c": 12, "f": 12, "servings": null, "calAuto": false}, {"id": "d07", "name": "Fruit Cup", "serving": "1 medium", "cat": "Chick-fil-A", "cal": 60, "p": 1, "c": 15, "f": 0, "servings": null, "calAuto": false}, {"id": "d08", "name": "Chicken Burrito Bowl", "serving": "chicken, white rice, black beans, fajita veggies, salsa, lettuce", "cat": "Chipotle", "cal": 570, "p": 46, "c": 72, "f": 12.5, "servings": null, "calAuto": false}, {"id": "d09", "name": "Double Chicken Salad Bowl", "serving": "2x chicken, black beans, fajita veggies, salsa, lettuce (no rice)", "cat": "Chipotle", "cal": 540, "p": 74, "c": 32, "f": 15.5, "servings": null, "calAuto": false}, {"id": "d10", "name": "Double Chicken Rice Bowl", "serving": "2x chicken, white rice, fajita veggies, salsa, lettuce", "cat": "Chipotle", "cal": 620, "p": 70, "c": 50, "f": 18, "servings": null, "calAuto": false}, {"id": "d11", "name": "Extra Chicken (side)", "serving": "4 oz scoop", "cat": "Chipotle", "cal": 180, "p": 32, "c": 0, "f": 7, "servings": null, "calAuto": false}, {"id": "d12", "name": "#4 Turkey Tom (8\")", "serving": "8\" French bread", "cat": "Jimmy John's", "cal": 510, "p": 25, "c": 57, "f": 20, "servings": null, "calAuto": false}, {"id": "d13", "name": "Turkey Tom Unwich", "serving": "lettuce wrap", "cat": "Jimmy John's", "cal": 250, "p": 15, "c": 5, "f": 17, "servings": null, "calAuto": false}, {"id": "d14", "name": "Core Power Elite 42g", "serving": "14 oz bottle", "cat": "QuikTrip", "cal": 230, "p": 42, "c": 6, "f": 3.5, "servings": null, "calAuto": false}, {"id": "d15", "name": "Core Power 26g", "serving": "14 oz bottle", "cat": "QuikTrip", "cal": 170, "p": 26, "c": 6, "f": 4.5, "servings": null, "calAuto": false}, {"id": "d16", "name": "Premier Protein shake", "serving": "11 oz carton", "cat": "QuikTrip", "cal": 160, "p": 30, "c": 4, "f": 3, "servings": null, "calAuto": false}, {"id": "d17", "name": "Fairlife Nutrition Plan", "serving": "11.5 oz bottle", "cat": "QuikTrip", "cal": 150, "p": 30, "c": 3, "f": 2.5, "servings": null, "calAuto": false}, {"id": "d18", "name": "Jack Link's Original Jerky", "serving": "1 oz", "cat": "QuikTrip", "cal": 70, "p": 10, "c": 6, "f": 1.5, "servings": null, "calAuto": false}, {"id": "d19", "name": "Oikos Pro yogurt cup", "serving": "5.3 oz cup (check flavor label)", "cat": "Snacks", "cal": 140, "p": 20, "c": 7, "f": 3, "servings": null, "calAuto": false}, {"id": "d20", "name": "Hard-boiled eggs", "serving": "2 large", "cat": "Proteins", "cal": 140, "p": 12, "c": 1, "f": 10, "servings": null, "calAuto": false}, {"id": "d21", "name": "Tuna pouch", "serving": "2.6 oz pouch", "cat": "Proteins", "cal": 70, "p": 17, "c": 0, "f": 1, "servings": null, "calAuto": false}, {"id": "d22", "name": "Banana", "serving": "1 medium", "cat": "Snacks", "cal": 105, "p": 1, "c": 27, "f": 0, "servings": null, "calAuto": false}, {"id": "d23", "name": "Apple", "serving": "1 medium", "cat": "Snacks", "cal": 95, "p": 0, "c": 25, "f": 0, "servings": null, "calAuto": false}];
+function defaultState(){
+  return {
+    schema:1,
+    settings:{ targets:{cal:2400,p:235,c:205,f:65}, tol:{cal:75,p:8,c:10,f:5}, start:'2026-10-26', dinnerShare:35, theme:'dark', ideaMode:'day', snackSlots:2, postDefault:true,
+      holdOn:true, hold:{cal:750,p:60,c:65,f:25}, fastHours:16 },
+    fast:{on:false, start:null, hours:16},
+    library:JSON.parse(JSON.stringify(STARTER)),
+    days:{}
+  };
+}
+function normalize(o){
+  var d = defaultState();
+  if(!o || typeof o!=='object') return d;
+  var st = o.settings || {};
+  var s = {
+    schema:1,
+    settings: Object.assign({}, d.settings, st),
+    library: Array.isArray(o.library) ? o.library : d.library,
+    days: (o.days && typeof o.days==='object') ? o.days : {},
+    fast: Object.assign({on:false, start:null, hours:16}, o.fast||{})
+  };
+  s.settings.targets = Object.assign({}, d.settings.targets, st.targets||{});
+  s.settings.tol = Object.assign({}, d.settings.tol, st.tol||{});
+  s.settings.hold = Object.assign({}, d.settings.hold, st.hold||{});
+  s.library.forEach(function(it){ if(!it.id) it.id=uid(); MAC.forEach(function(m){ it[m]=r1(it[m]); }); if(CATS.indexOf(it.cat)<0) it.cat='Snacks'; });
+  Object.keys(s.days).forEach(function(k){
+    var day = s.days[k] || {};
+    day.meals = Object.assign({first:[],breakfast:[],lunch:[],snacks:[],post:[]}, day.meals||{});
+    day.sides = Array.isArray(day.sides) ? day.sides : [];
+    day.skipped = day.skipped || {};
+    day.extraSnacks = Array.isArray(day.extraSnacks) ? day.extraSnacks : [];
+    day.extraSnacks.forEach(function(k){ if(!Array.isArray(day.meals[k])) day.meals[k] = []; });
+    if(day.dinner===undefined) day.dinner = null;
+    s.days[k] = day;
+  });
+  return s;
+}
+function load(){
+  try { var raw = localStorage.getItem(KEY); if(raw) return normalize(JSON.parse(raw)); } catch(e){}
+  return defaultState();
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(S)); }
+  catch(e){ toast('Could not save. Storage may be full.'); }
+}
+
+var S = load();
+var ui = { tab:'today', dayKey:todayKey(), lastToday:todayKey(), ideaMeal:null, ideaPage:0, libCat:'All', libSearch:'', lastIdeas:[], sheet:null };
+
+function getItem(id){ for(var i=0;i<S.library.length;i++) if(S.library[i].id===id) return S.library[i]; return null; }
+
+function ensureDay(k){
+  var d = S.days[k];
+  if(!d){
+    d = { dinner:null, sides:[], meals:{first:[],breakfast:[],lunch:[],snacks:[],post:[]}, skipped:{}, extraSnacks:[] };
+    var ns = Math.max(1, Math.min(MAX_SNACKS, Math.round(+S.settings.snackSlots || 1)));
+    for(var si=2; si<=ns; si++){ d.extraSnacks.push('snacks'+si); d.meals['snacks'+si] = []; }
+    if(S.settings.postDefault === false) d.skipped.post = true;
+    var cof = getItem('coffee');
+    if(cof) d.meals.first.push(makeEntry(cof,1));
+    S.days[k] = d;
+    save();
+  }
+  return d;
+}
+function makeEntry(it, qty){
+  return { uid:uid(), itemId:it.id, name:it.name, serving:it.serving||'', cat:it.cat,
+    cal:r1(it.cal), p:r1(it.p), c:r1(it.c), f:r1(it.f), servings:it.servings||null, qty:r2(qty||1), eaten:false };
+}
+function em(e){ return scaleM(e, e.qty); }
+function sumEntries(list){ return list.reduce(function(t,e){ return addM(t, em(e)); }, zero()); }
+function allEntries(d){
+  var a = []; if(d.dinner) a.push(d.dinner);
+  a = a.concat(d.sides);
+  Object.keys(d.meals).forEach(function(k){ a = a.concat(d.meals[k]||[]); });
+  return a;
+}
+function holdOn(d){ return !d.dinner && S.settings.holdOn!==false && !d.noHold; }
+function holdM(d){ return holdOn(d) ? S.settings.hold : zero(); }
+function dayTotals(d, opt){
+  opt = opt || {};
+  var t = zero();
+  if(d.dinner && !opt.noDinner) t = addM(t, em(d.dinner));
+  if(!opt.noDinner && !opt.noHold) t = addM(t, holdM(d));
+  if(!opt.noDinner) t = addM(t, sumEntries(d.sides));
+  Object.keys(d.meals).forEach(function(k){ t = addM(t, sumEntries(d.meals[k]||[])); });
+  return t;
+}
+function eatenTotals(d){ return sumEntries(allEntries(d).filter(function(e){ return e.eaten; })); }
+function openMeals(d){ return planKeys(d).filter(function(m){ return !d.skipped[m] && (d.meals[m]||[]).length===0; }); }
+
+function status(m, planned){
+  var T = S.settings.targets[m], tol = S.settings.tol[m];
+  var diff = r1(T - planned);
+  if(Math.abs(diff) <= tol) return {k:'on', diff:diff};
+  return diff > 0 ? {k:'left', diff:diff} : {k:'over', diff:-diff};
+}
+function dayHit(d){
+  if(!d) return false;
+  var t = eatenTotals(d);
+  return MAC.every(function(m){ return status(m, t[m]).k==='on'; });
+}
+function devScore(sum, goal){
+  var tol = S.settings.tol, s = 0, hit = true;
+  MAC.forEach(function(m){
+    var n = Math.abs(sum[m]-goal[m]) / Math.max(0.1, tol[m]);
+    if(n > 1) hit = false;
+    s += SCORE_W[m] * (n <= 1 ? 0.25*n*n : n*n - 0.75);
+  });
+  return {s:s, hit:hit};
+}
+
+/* ================= THEME ================= */
+var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+function applyTheme(){
+  var t = S.settings.theme;
+  var dark = t==='dark' || (t==='auto' && mq && mq.matches);
+  document.documentElement.setAttribute('data-theme', dark?'dark':'light');
+}
+if(mq){ if(mq.addEventListener) mq.addEventListener('change', applyTheme); else if(mq.addListener) mq.addListener(applyTheme); }
+
+/* ================= TOAST ================= */
+var toastTimer;
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
+}
+
+/* ================= CHALLENGE ================= */
+function challengeLabel(k){
+  var n = diffDays(S.settings.start, k) + 1;
+  if(n < 1){ var w = 1-n; return 'Challenge starts in '+w+' day'+(w===1?'':'s'); }
+  if(n > 42) return 'Challenge complete';
+  return 'Week '+Math.ceil(n/7)+' of 6 · Day '+n;
+}
+
+/* ================= DINNER SUGGESTION ================= */
+function dinnerSuggestion(d){
+  if(!d.dinner || d.dinner.cal <= 0) return null;
+  var T = S.settings.targets;
+  var others = dayTotals(d, {noDinner:true});
+  var base = subM(T, others);
+  var open = openMeals(d);
+  var closing = open.length === 0;
+  var share = Math.min(90, Math.max(10, +S.settings.dinnerShare || 40)) / 100;
+  var wd = share/(1-share)*100;
+  var wOpen = open.reduce(function(s,m){ return s+wt(m); }, 0);
+  var frac = closing ? 1 : wd/(wd+wOpen);
+  var sides = sumEntries(d.sides);
+  var goalMain = subM(scaleM(base, frac), sides);
+  var exact = goalMain.cal / d.dinner.cal;
+  if(exact < 0.125) return {q:null, closing:closing, full:true};
+  var q = Math.max(0.25, Math.min(12, Math.round(exact*4)/4));
+  var main = scaleM(d.dinner, q);
+  var dayAfter = addM(addM(others, sides), main);
+  var dinnerAfter = addM(main, sides);
+  var hitDay = MAC.every(function(m){ return status(m, dayAfter[m]).k==='on'; });
+  return {q:q, closing:closing, main:main, dinnerAfter:dinnerAfter, dayAfter:dayAfter, hitDay:hitDay, share:Math.round(frac*100)};
+}
+
+/* ================= MEAL IDEAS ================= */
+function mealTarget(d, meal){
+  var left = subM(S.settings.targets, dayTotals(d));
+  var open = openMeals(d);
+  if(open.length===1 && open[0]===meal) return {t:clampM(left), left:left, closing:true};
+  var w = open.reduce(function(s,m){ return s+wt(m); }, 0) || 1;
+  return {t:clampM(scaleM(left, wt(meal)/w)), left:left, closing:false};
+}
+var comboCache = {sig:null, data:null};
+var PAIR_QTYS = [0.5, 0.75, 1, 1.25, 1.5, 2];
+function libSig(){ return S.library.map(function(i){ return i.id+':'+i.cat+':'+i.cal+':'+i.p+':'+i.c+':'+i.f; }).join(';'); }
+// Every food in the library (except dinners and the protein coffee) can go in any meal.
+// Combos: one food at 0.5x-3x, or any two foods at 0.5x-2x each. Stored compactly and sorted by calories.
+function comboData(){
+  var sig = libSig();
+  if(comboCache.sig === sig) return comboCache.data;
+  var pool = S.library.filter(function(i){ return i.cat!=='Dinners' && i.cal>0 && i.id!=='coffee'; });
+  var n = pool.length;
+  var WHOLE = ['Chick-fil-A','Chipotle',"Jimmy John's",'QuikTrip'];
+  function qs(it, pair){ return WHOLE.indexOf(it.cat) >= 0 ? (pair ? [1] : [1,2]) : (pair ? PAIR_QTYS : QTYS); }
+  var total = 0;
+  for(var t1=0;t1<n;t1++){ total += qs(pool[t1],false).length; for(var t2=t1+1;t2<n;t2++) total += qs(pool[t1],true).length*qs(pool[t2],true).length; }
+  var A = new Int32Array(total), B = new Int32Array(total), QA = new Float32Array(total), QB = new Float32Array(total);
+  var CAL = new Float64Array(total), P = new Float64Array(total), C = new Float64Array(total), F = new Float64Array(total);
+  var k = 0;
+  for(var i=0;i<n;i++){ var it = pool[i], L = qs(it,false);
+    for(var x=0;x<L.length;x++){ var q = L[x];
+      A[k]=i; B[k]=-1; QA[k]=q; QB[k]=0; CAL[k]=it.cal*q; P[k]=it.p*q; C[k]=it.c*q; F[k]=it.f*q; k++; } }
+  for(var i2=0;i2<n;i2++){ var a1 = pool[i2], La = qs(a1,true);
+    for(var j=i2+1;j<n;j++){ var b1 = pool[j], Lb = qs(b1,true);
+      for(var x2=0;x2<La.length;x2++){ var qa = La[x2];
+        for(var y=0;y<Lb.length;y++){ var qb = Lb[y];
+          A[k]=i2; B[k]=j; QA[k]=qa; QB[k]=qb;
+          CAL[k]=a1.cal*qa+b1.cal*qb; P[k]=a1.p*qa+b1.p*qb; C[k]=a1.c*qa+b1.c*qb; F[k]=a1.f*qa+b1.f*qb; k++; } } } }
+  var order = new Int32Array(total); for(var o=0;o<total;o++) order[o]=o;
+  var ord = Array.prototype.slice.call(order).sort(function(u,v){ return CAL[u]-CAL[v]; });
+  var calS = new Float64Array(total); for(var z=0;z<total;z++) calS[z] = CAL[ord[z]];
+  comboCache = {sig:sig, data:{pool:pool, A:A, B:B, QA:QA, QB:QB, CAL:CAL, P:P, C:C, F:F, ord:ord, calS:calS, n:total}};
+  return comboCache.data;
+}
+function lowerBound(arr, v){ var lo=0, hi=arr.length; while(lo<hi){ var m=(lo+hi)>>1; if(arr[m]<v) lo=m+1; else hi=m; } return lo; }
+function buildIdeas(meal, tgt, left){
+  var tol = S.settings.tol, D = comboData();
+  var lim = Math.max(90, tgt.cal*0.25);
+  var tc = Math.max(0.1,tol.cal), tp = Math.max(0.1,tol.p), tcc = Math.max(0.1,tol.c), tf = Math.max(0.1,tol.f);
+  var start = lowerBound(D.calS, tgt.cal - lim), end = lowerBound(D.calS, tgt.cal + lim + 1e-9);
+  var cand = [], cut = Infinity;
+  for(var z=start; z<end; z++){
+    var k = D.ord[z], cal = D.CAL[k], p = D.P[k], c = D.C[k], f = D.F[k];
+    if(cal - left.cal > tol.cal || c - left.c > tol.c || f - left.f > tol.f) continue;
+    var n1 = Math.abs(cal-tgt.cal)/tc, n2 = Math.abs(p-tgt.p)/tp, n3 = Math.abs(c-tgt.c)/tcc, n4 = Math.abs(f-tgt.f)/tf;
+    var sc = 1.5*(n1<=1?0.25*n1*n1:n1*n1-0.75) + 1.2*(n2<=1?0.25*n2*n2:n2*n2-0.75) + (n3<=1?0.25*n3*n3:n3*n3-0.75) + (n4<=1?0.25*n4*n4:n4*n4-0.75);
+    var qa = D.QA[k], qb = D.QB[k];
+    sc += (D.B[k] >= 0 ? 0.5 : 0) + (qa===1 ? 0 : (qa%0.5===0 ? 0.08 : 0.15)) + (D.B[k] < 0 || qb===1 ? 0 : (qb%0.5===0 ? 0.08 : 0.15));
+    if(sc >= cut) continue;
+    cand.push([sc, k, n1<=1&&n2<=1&&n3<=1&&n4<=1]);
+    if(cand.length > 1500){ cand.sort(function(a,b){ return a[0]-b[0]; }); cand.length = 400; cut = cand[399][0]; }
+  }
+  cand.sort(function(a,b){ return a[0]-b[0]; });
+  var out = [], seenCombo = {}, seenMain = {}, first = [], rest = [];
+  for(var j=0; j<cand.length && out.length<120; j++){
+    var kk = cand[j][1], ia = D.A[kk], ib = D.B[kk];
+    var key = ia+'+'+ib; if(seenCombo[key]) continue; seenCombo[key] = 1;
+    var parts = [{it:D.pool[ia], q:r2(D.QA[kk])}]; if(ib >= 0) parts.push({it:D.pool[ib], q:r2(D.QB[kk])});
+    var sum = {cal:r1(D.CAL[kk]), p:r1(D.P[kk]), c:r1(D.C[kk]), f:r1(D.F[kk])};
+    out.push({parts:parts, sum:sum, score:cand[j][0], hit:cand[j][2], fits:true});
+  }
+  out.forEach(function(o){ var m=o.parts[0].it.id; if(seenMain[m]) rest.push(o); else { seenMain[m]=1; first.push(o); } });
+  return first.concat(rest).slice(0, 30);
+}
+
+/* ================= WHOLE-DAY PLAN ================= */
+function planSig(d){
+  var t = dayTotals(d);
+  return [t.cal,t.p,t.c,t.f].join(',')+'|'+openMeals(d).join(',')+'|'+
+    S.library.map(function(i){ return i.id+':'+i.cat+':'+i.cal+':'+i.p+':'+i.c+':'+i.f; }).join(';')+'|'+
+    JSON.stringify(S.settings.targets)+JSON.stringify(S.settings.tol);
+}
+function partsFromPick(pk){
+  if(!pk) return null; var out = [];
+  for(var i=0;i<pk.length;i++){ var it = getItem(pk[i].id); if(!it) return null; out.push({it:it, q:pk[i].q}); }
+  return out;
+}
+function partsSum(parts){ return parts.reduce(function(t,p){ return addM(t, scaleM(p.it, p.q)); }, zero()); }
+function ideaKey(parts){ return parts.map(function(p){ return p.it.id+'@'+p.q; }).join('+'); }
+function toPick(parts){ return parts.map(function(p){ return {id:p.it.id, q:p.q}; }); }
+function planKey(picks, open){ return open.map(function(m){ return m+'='+(picks[m] ? picks[m].map(function(x){ return x.id+'@'+x.q; }).join('+') : '-'); }).join('|'); }
+function sumW(list){ return list.reduce(function(s,m){ return s+wt(m); }, 0) || 1; }
+
+function genPlan(d, avoid){
+  var open = openMeals(d), base = subM(S.settings.targets, dayTotals(d)), results = [];
+  for(var t=0; t<12; t++){
+    var picks = {}, used = {}, rem = base, sum = zero(), empty = 0, fitPen = 0;
+    for(var i=0; i<open.length; i++){
+      var m = open[i], last = i===open.length-1;
+      var tgt = clampM(last ? rem : scaleM(rem, wt(m)/sumW(open.slice(i))));
+      var c = buildIdeas(m, tgt, rem);
+      var fresh = c.filter(function(o){ return !o.parts.some(function(p){ return used[p.it.id]; }); });
+      if(fresh.length) c = fresh;
+      if(!c.length){ empty++; continue; }
+      var n = Math.min(c.length, 6), idx = t===0 ? 0 : Math.floor(Math.pow(Math.random(), 1.6)*n);
+      var o = c[idx];
+      picks[m] = toPick(o.parts);
+      o.parts.forEach(function(p){ used[p.it.id] = 1; });
+      sum = addM(sum, o.sum); rem = subM(rem, o.sum); fitPen += o.score*0.25;
+    }
+    results.push({picks:picks, score:devScore(sum, base).s + empty*50 + fitPen, key:planKey(picks, open)});
+  }
+  results.sort(function(a,b){ return a.score-b.score; });
+  avoid = avoid || [];
+  for(var j=0;j<results.length;j++) if(avoid.indexOf(results[j].key) < 0) return results[j];
+  return results[0];
+}
+function ensurePlan(d){
+  var sig = planSig(d);
+  if(!d.plan || d.plan.sig !== sig){
+    var r = genPlan(d, []);
+    d.plan = {sig:sig, picks:r.picks, seen:{}, seenPlans:[r.key]};
+    save();
+  }
+  return d.plan;
+}
+function mixMeal(d, meal){
+  var p = ensurePlan(d), open = openMeals(d), base = subM(S.settings.targets, dayTotals(d));
+  var others = zero(), used = {};
+  open.forEach(function(m){
+    if(m===meal) return;
+    var parts = partsFromPick(p.picks[m]);
+    if(parts){ others = addM(others, partsSum(parts)); parts.forEach(function(x){ used[x.it.id] = 1; }); }
+  });
+  var rem = subM(base, others);
+  var unpicked = open.filter(function(m){ return m===meal || !p.picks[m]; });
+  var tgt = clampM(scaleM(rem, wt(meal)/sumW(unpicked)));
+  var c = buildIdeas(meal, tgt, rem);
+  var fresh = c.filter(function(o){ return !o.parts.some(function(x){ return used[x.it.id]; }); });
+  if(fresh.length) c = fresh;
+  var curParts = partsFromPick(p.picks[meal]), cur = curParts ? ideaKey(curParts) : '';
+  var seen = p.seen[meal] || []; if(cur && seen.indexOf(cur) < 0) seen.push(cur);
+  var next = c.filter(function(o){ return seen.indexOf(ideaKey(o.parts)) < 0; })[0];
+  if(!next){ seen = cur ? [cur] : []; next = c.filter(function(o){ return ideaKey(o.parts) !== cur; })[0]; }
+  if(!next){ toast('No other options for '+mealLabel(meal)+'. Add more foods to your library.'); return false; }
+  p.picks[meal] = toPick(next.parts); seen.push(ideaKey(next.parts)); p.seen[meal] = seen;
+  return true;
+}
+function addPlanMeal(d, meal){
+  var parts = partsFromPick(d.plan && d.plan.picks[meal]); if(!parts) return false;
+  parts.forEach(function(x){ d.meals[meal].push(makeEntry(x.it, x.q)); });
+  d.skipped[meal] = false;
+  delete d.plan.picks[meal];
+  d.plan.sig = planSig(d);
+  return true;
+}
+function projBadge(lbl, m, val){
+  var st = status(m, val), u = m==='cal' ? '' : 'g';
+  if(st.k==='on') return '<span class="st on">'+lbl+' ✓</span>';
+  return '<span class="st '+st.k+'">'+lbl+' '+fG(Math.round(st.diff))+u+' '+(st.k==='left'?'left':'over')+'</span>';
+}
+function dayPlanHTML(d, open){
+  var p = ensurePlan(d), h = '', sum = dayTotals(d), any = false;
+  open.forEach(function(m, i){
+    var parts = partsFromPick(p.picks[m]), label = mealLabel(m);
+    h += '<div class="pl'+(i===0?' first':'')+'"><div class="pl-h"><span class="mac-name">'+esc(label)+'</span></div>';
+    if(!parts){
+      h += '<div class="pl-body"><div class="pl-txt pl-none">Nothing in your library fits '+esc(label.toLowerCase())+'. Add a few go-to foods.</div>'+
+        '<button class="btn sm outline" data-act="newFor" data-meal="'+m+'">+ New</button></div></div>';
+      return;
+    }
+    any = true;
+    var ms = partsSum(parts); sum = addM(sum, ms);
+    var name = parts.map(function(x){ return '<span class="q">'+fQ(x.q)+'×</span> '+esc(x.it.name); }).join(' + ');
+    h += '<div class="pl-body"><div class="pl-txt"><div class="idea-name">'+name+'</div><div class="macline">'+macLine(ms)+'</div></div>'+
+      '<button class="mixbtn" data-act="planMix" data-meal="'+m+'" aria-label="Mix up '+esc(label)+'">'+MIX_ICON+'Mix</button>'+
+      '<button class="btn primary sm" data-act="planAdd" data-meal="'+m+'">Add</button></div></div>';
+  });
+  if(any){
+    var allHit = MAC.every(function(m){ return status(m, sum[m]).k==='on'; });
+    h += '<div class="proj"><div class="proj-t">'+(allHit?'Projected day ✓ on target':'Projected day')+'</div>'+
+      '<div class="proj-v">'+macLine(sum)+'</div><div class="proj-b">'+
+      projBadge('Cal','cal',sum.cal)+projBadge('P','p',sum.p)+projBadge('C','c',sum.c)+projBadge('F','f',sum.f)+'</div></div>'+
+      '<div class="ideas-actions"><button class="btn" data-act="planMixAll">'+MIX_ICON+'Mix up all</button>'+
+      '<button class="btn primary" data-act="planAddAll">Add all</button></div>';
+  }
+  return h;
+}
+
+/* ================= FASTING ================= */
+var FAST_CHOICES = [12,14,16,18,20,24];
+function hm(ms){ ms = Math.max(0, ms); var m = Math.floor(ms/60000), h = Math.floor(m/60); return h+'h '+pad(m%60)+'m'; }
+function clock(t){ return new Date(t).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}); }
+function whenLabel(t){
+  var d = keyOf(new Date(t)), n = diffDays(todayKey(), d);
+  return (n===0?'today':n===1?'tomorrow':n===-1?'yesterday':prettyDate(d))+' at '+clock(t);
+}
+function fastLiveHTML(){
+  var F = S.fast, now = Date.now(), dur = F.hours*3600000, el = now - F.start, done = el >= dur;
+  var pct = Math.min(100, el/dur*100);
+  return '<div class="fast-big">'+(done ? hm(el) : hm(dur-el))+'</div>'+
+    '<div class="fast-lbl">'+(done ? 'Fasted · goal of '+F.hours+'h reached ✓' : 'left of your '+F.hours+'h fast')+'</div>'+
+    '<div class="bar fast-bar"><div class="fill'+(done?' on':'')+'" style="width:'+pct+'%"></div></div>'+
+    '<div class="fast-meta"><span>Started '+whenLabel(F.start)+'</span><span>'+(done?'Ended goal ':'Ends ')+whenLabel(F.start+dur)+'</span></div>';
+}
+function fastHTML(){
+  var F = S.fast, h = '<section class="card block fast"><div class="card-h"><h2>Fasting</h2>'+
+    '<button class="toggle'+(F.on?' on':'')+'" data-act="fastToggle" role="switch" aria-checked="'+(F.on?'true':'false')+'" aria-label="Fasting"><span></span></button></div>';
+  var cur = F.on ? F.hours : (S.settings.fastHours || 16);
+  var chips = '<div class="chips fast-chips">'+FAST_CHOICES.map(function(x){ return '<button class="chip'+(x===cur?' on':'')+'" data-act="fastHours" data-h="'+x+'">'+x+'h</button>'; }).join('')+
+    '<label class="fast-custom">Custom <input id="fastCustom" type="number" inputmode="numeric" min="1" max="72" value="'+(FAST_CHOICES.indexOf(cur)<0?cur:'')+'" placeholder="hrs"></label></div>';
+  if(!F.on){
+    h += '<p class="hint" style="margin:0 0 8px;color:var(--blockMuted)">Pick how long, then flip the switch to start the clock.</p>'+chips;
+  } else {
+    h += '<div id="fastLive">'+fastLiveHTML()+'</div>'+chips+
+      '<div class="fast-edit"><label>Started at <input id="fastStartTime" type="time" value="'+pad(new Date(F.start).getHours())+':'+pad(new Date(F.start).getMinutes())+'"></label>'+
+      '<button class="btn sm" data-act="fastToggle">End fast</button></div>';
+  }
+  return h + '</section>';
+}
+function tickFast(){
+  if(!S.fast.on) return;
+  var el = document.getElementById('fastLive'); if(el) el.innerHTML = fastLiveHTML();
+  var dur = S.fast.hours*3600000;
+  if(Date.now() - S.fast.start >= dur && !S.fast.notified){ S.fast.notified = true; save(); toast('Fast complete ✓ '+S.fast.hours+' hours'); }
+}
+setInterval(tickFast, 30000);
+
+/* ================= RENDER: TODAY ================= */
+function render(){
+  applyTheme();
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.tab===ui.tab); });
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.toggle('active', s.id==='screen-'+ui.tab); });
+  if(ui.tab==='today') renderToday();
+  if(ui.tab==='library') renderLibrary();
+  if(ui.tab==='targets') renderTargets();
+}
+
+function statusBadge(st, unit){
+  if(st.k==='on') return '<span class="st on">✓ on target</span>';
+  if(st.k==='left') return '<span class="st left">'+fG(Math.round(st.diff))+unit+' left</span>';
+  return '<span class="st over">'+fG(Math.round(st.diff))+unit+' over</span>';
+}
+
+function budgetHTML(d){
+  var T = S.settings.targets, tol = S.settings.tol, t = dayTotals(d), e = eatenTotals(d);
+  var calLeft = r1(T.cal - t.cal), cs = status('cal', t.cal);
+  var h = '<section class="card block budget">';
+  h += '<div class="calrow"><div><div class="bignum">'+fInt(Math.abs(calLeft))+'</div><div class="biglbl">'+(calLeft<0?'Calories over':'Calories left')+'</div></div>';
+  h += '<div class="calmeta">Planned <b>'+fInt(t.cal)+'</b> / '+fInt(T.cal)+'<div style="margin-top:6px">'+statusBadge(cs,' cal')+'</div></div></div>';
+  [['p','Protein'],['c','Carbs'],['f','Fat']].forEach(function(x){
+    var m = x[0], tg = T[m] || 1, scale = tg*1.15, st = status(m, t[m]);
+    var pct = Math.min(100, t[m]/scale*100);
+    var lo = Math.max(0,(tg-tol[m])/scale*100), hi = Math.min(100,(tg+tol[m])/scale*100);
+    h += '<div class="mac"><div class="mac-top"><span class="mac-name">'+x[1]+'</span><span class="mac-val"><b>'+fG(Math.round(t[m]))+'</b> / '+fG(tg)+'g &nbsp;'+statusBadge(st,'g')+'</span></div>';
+    h += '<div class="bar"><div class="band" style="left:'+lo+'%;width:'+(hi-lo)+'%"></div><div class="fill '+st.k+'" style="width:'+pct+'%"></div><div class="tick" style="left:calc('+(tg/scale*100)+'% - 1px)"></div></div></div>';
+  });
+  h += '<div class="eatenline">Eaten so far: '+macLine(e)+'</div></section>';
+  return h;
+}
+
+function entryHTML(e, where){
+  var m = em(e);
+  return '<div class="item'+(e.eaten?' eaten':'')+'">'+
+    '<div class="item-top"><button class="check'+(e.eaten?' on':'')+'" data-act="eat" data-where="'+where+'" data-uid="'+e.uid+'" aria-label="Mark eaten">✓</button>'+
+    '<div class="item-name">'+esc(e.name)+(e.serving?'<span class="sv">'+esc(e.serving)+'</span>':'')+'</div>'+
+    '<button class="xmini" data-act="remove" data-where="'+where+'" data-uid="'+e.uid+'" aria-label="Remove">&times;</button></div>'+
+    '<div class="item-bot"><div class="macline">'+macLine(m,true)+'</div>'+
+    '<div class="stepper"><button data-act="dec" data-where="'+where+'" data-uid="'+e.uid+'" aria-label="Less">−</button><span>'+fQ(e.qty)+'</span><button data-act="inc" data-where="'+where+'" data-uid="'+e.uid+'" aria-label="More">+</button></div></div></div>';
+}
+
+function dinnerHTML(d){
+  var h = '<section class="card dinner"><div class="card-h"><h2>Dinner</h2><span class="tag">Lauryn’s cooking</span></div>';
+  if(!d.dinner){
+    if(holdOn(d)){
+      var H = S.settings.hold;
+      h += '<div class="suggest"><div class="s-txt"><b>Waiting on Lauryn</b><div class="s-sub">Holding '+macLine(H)+' for dinner. The rest of your day plans around it.</div></div></div>';
+    } else if(d.noHold){
+      h += '<div class="suggest"><div class="s-txt"><b>No dinner hold today</b><div class="s-sub">Eating out or skipping? Add it as a meal or side when you know.</div></div><button class="btn sm" data-act="holdToggle">Hold again</button></div>';
+    }
+    h += '<button class="btn primary wide" data-act="pick" data-where="dinner">+ Pick tonight’s recipe</button>';
+    if(holdOn(d)) h += '<button class="linkbtn" data-act="holdToggle" style="margin-top:6px">Not eating at home tonight</button>';
+    if(d.sides.length){ h += '<div class="subhead">Sides</div>'; d.sides.forEach(function(e){ h += entryHTML(e,'sides'); }); }
+    return h + '</section>';
+  }
+  var e = d.dinner, main = em(e);
+  h += '<div class="dinner-main"><div class="item-top"><button class="check'+(e.eaten?' on':'')+'" data-act="eat" data-where="dinner" data-uid="'+e.uid+'" aria-label="Mark eaten">✓</button>'+
+    '<div class="item-name">'+esc(e.name)+(e.serving?'<span class="sv">'+esc(e.serving)+'</span>':'')+'</div>'+
+    '<button class="btn sm" data-act="pick" data-where="dinner">Change</button>'+
+    '<button class="xmini" data-act="remove" data-where="dinner" data-uid="'+e.uid+'" aria-label="Remove">&times;</button></div>'+
+    '<div class="servrow"><div class="stepper"><button data-act="dec" data-where="dinner" data-uid="'+e.uid+'">−</button><span>'+fQ(e.qty)+'</span><button data-act="inc" data-where="dinner" data-uid="'+e.uid+'">+</button></div>'+
+    '<div class="ofserv">'+(e.servings ? 'of '+fG(e.servings)+' servings' : 'servings')+'</div></div></div>';
+
+  var sg = dinnerSuggestion(d);
+  if(sg){
+    if(sg.full){
+      h += '<div class="suggest"><div class="s-txt">Your day is already full before dinner. Trim something or use a small portion.</div></div>';
+    } else {
+      var sub = sg.closing
+        ? (sg.hitDay ? 'Rounds out your day, everything lands on target ✓' : 'Closest quarter serving to round out your day')
+        : 'Dinner’s share: '+sg.share+'% of what’s left. The rest of your day is still open.';
+      var same = r2(sg.q) === r2(e.qty);
+      h += '<div class="suggest"><div class="s-txt">Suggested: <b>'+fQ(sg.q)+' serving'+(sg.q===1?'':'s')+'</b>'+
+        '<div class="s-sub">'+sub+'</div><div class="s-sub">Dinner would be '+macLine(sg.dinnerAfter)+'</div></div>'+
+        (same ? '<span class="st on">✓ Using</span>' : '<button class="btn primary sm" data-act="useSuggest" data-q="'+sg.q+'">Use '+fQ(sg.q)+'</button>')+'</div>';
+    }
+  }
+
+  h += '<div class="subhead"><span>Sides</span><button class="addbtn" data-act="pick" data-where="side">+ Add side</button></div>';
+  if(!d.sides.length) h += '<div class="empty">No sides yet (baked potato, salad, rolls…)</div>';
+  d.sides.forEach(function(s){ h += entryHTML(s,'sides'); });
+
+  var sides = sumEntries(d.sides), tot = addM(main, sides);
+  function row(lbl, m, cls){ return '<tr'+(cls?' class="'+cls+'"':'')+'><td>'+lbl+'</td><td>'+fInt(m.cal)+'</td><td>'+fG(m.p)+'</td><td>'+fG(m.c)+'</td><td>'+fG(m.f)+'</td></tr>'; }
+  h += '<table class="breakdown"><tr><th></th><th>CAL</th><th>P</th><th>C</th><th>F</th></tr>'+
+    row('Recipe', main)+row('Sides', sides)+row('Dinner total', tot, 'total')+'</table>';
+  return h + '</section>';
+}
+
+function ideasHTML(d){
+  if(!d.dinner && !holdOn(d) && !d.noHold) return '';
+  var open = openMeals(d);
+  var h = '<section class="card ideas"><div class="card-h"><h2>Meal ideas</h2><span class="tag ghost">From your library</span></div>';
+  var t = dayTotals(d);
+  var allOn = MAC.every(function(m){ return status(m, t[m]).k==='on'; });
+  if(!open.length){
+    h += '<p class="hint" style="margin:0">Every meal is planned or skipped. '+(allOn ? 'Your day lands on target ✓' : 'Nudge quantities to close it out. Check the budget at the top.')+'</p>';
+    return h + '</section>';
+  }
+  var mode = S.settings.ideaMode==='meal' ? 'meal' : 'day';
+  h += '<div class="modeseg"><button class="'+(mode==='day'?'on':'')+'" data-act="ideaMode" data-mode="day">Whole day</button>'+
+    '<button class="'+(mode==='meal'?'on':'')+'" data-act="ideaMode" data-mode="meal">One meal</button></div>';
+  if(mode==='day'){
+    if(allOn) return h + '<p class="hint" style="margin:6px 0 0">Your day is already on target. Nothing else needed today.</p></section>';
+    return h + dayPlanHTML(d, open) + '</section>';
+  }
+
+  var meal = (ui.ideaMeal && open.indexOf(ui.ideaMeal)>=0) ? ui.ideaMeal : open[0];
+  var label = mealLabel(meal);
+  h += '<div class="chips">'+open.map(function(m){ return '<button class="chip'+(m===meal?' on':'')+'" data-act="ideaMeal" data-meal="'+m+'">'+mealLabel(m)+'</button>'; }).join('')+'</div>';
+
+  if(allOn){
+    h += '<p class="hint">Your day is already on target. You don’t need '+label.toLowerCase()+' today.</p>';
+    h += '<div class="ideas-actions"><button class="btn" data-act="skip" data-meal="'+meal+'">Skip '+esc(label)+' today</button></div>';
+    ui.lastIdeas = [];
+    return h + '</section>';
+  }
+
+  var mt = mealTarget(d, meal);
+  h += '<div class="aim">'+(mt.closing?'<b>Last open meal.</b> This closes out your day.<br>':'')+
+    '<b>'+esc(label)+':</b> Aim for about <b>'+fInt(mt.t.cal)+' cal</b> · '+fG(Math.round(mt.t.p))+'P · '+fG(Math.round(mt.t.c))+'C · '+fG(Math.round(mt.t.f))+'F</div>';
+
+  var ideas = buildIdeas(meal, mt.t, mt.left);
+  if(!ideas.length){
+    ui.lastIdeas = [];
+    h += '<p class="hint">Nothing in your library fits '+esc(label.toLowerCase())+' right now. Add a few go-to '+esc(label.toLowerCase())+' foods (and some proteins or sides) so I have options to work with.</p>';
+    h += '<div class="ideas-actions"><button class="btn primary" data-act="newFor" data-meal="'+meal+'">+ New '+esc(label)+' item</button><button class="btn" data-act="skip" data-meal="'+meal+'">Skip '+esc(label)+'</button></div>';
+    return h + '</section>';
+  }
+  var pages = Math.ceil(ideas.length/3);
+  if(ui.ideaPage >= pages) ui.ideaPage = 0;
+  var shown = ideas.slice(ui.ideaPage*3, ui.ideaPage*3+3);
+  ui.lastIdeas = shown; ui.lastIdeaMeal = meal;
+  shown.forEach(function(o,i){
+    var name = o.parts.map(function(p){ return '<span class="q">'+fQ(p.q)+'×</span> '+esc(p.it.name); }).join(' + ');
+    h += '<div class="idea"'+(i===0?' style="border-top:0"':'')+'><div class="idea-txt"><div class="idea-name">'+name+(o.hit?'<span class="fitbadge">✓ on target</span>':'')+'</div>'+
+      '<div class="macline">'+macLine(o.sum)+'</div></div><button class="btn primary sm" data-act="addIdea" data-i="'+i+'">Add</button></div>';
+  });
+  h += '<div class="ideas-actions">'+(pages>1?'<button class="btn" data-act="moreIdeas">More ideas</button>':'')+
+    '<button class="btn" data-act="skip" data-meal="'+meal+'">Skip '+esc(label)+' today</button></div>';
+  return h + '</section>';
+}
+
+function mealLabel(k){
+  var mm = /^snacks(\d+)$/.exec(k); if(mm) return 'Snack '+mm[1];
+  for(var i=0;i<MEALS.length;i++) if(MEALS[i].key===k) return MEALS[i].label; return k;
+}
+
+function mealHTML(d, m){
+  var list = d.meals[m.key] || [], sub = sumEntries(list), skipped = !!d.skipped[m.key];
+  var extra = extrasOf(d).indexOf(m.key) >= 0, plan = planKeys(d).indexOf(m.key) >= 0;
+  var h = '<section class="card"><div class="card-h"><div><h2>'+esc(m.label)+'</h2>'+
+    (list.length ? '<div class="sub">'+macLine(sub)+'</div>' : '')+'</div><div class="row-btns">';
+  if(!list.length && extra) h += '<button class="xmini" data-act="removeSnack" data-meal="'+m.key+'" aria-label="Remove this snack slot">&times;</button>';
+  if(!skipped) h += '<button class="addbtn" data-act="pick" data-where="'+m.key+'">+ Add</button>';
+  h += '</div></div>';
+  if(skipped && !list.length){
+    h += '<div class="skipbox"><span>'+(m.key==='post'?'No post-workout today':'Skipped today')+'</span><button class="btn sm" data-act="unskip" data-meal="'+m.key+'">Undo</button></div>';
+  } else if(!list.length){
+    h += '<div class="emptyrow"><span class="empty">'+(m.key==='first'?'Nothing yet':'Not planned yet')+'</span>'+
+      (plan && !extra ? '<button class="linkbtn" data-act="skip" data-meal="'+m.key+'">'+(m.key==='post'?'Not today':'Skip today')+'</button>' : '')+'</div>';
+  }
+  list.forEach(function(e){ h += entryHTML(e, m.key); });
+  var lastSnack = extrasOf(d).length ? extrasOf(d)[extrasOf(d).length-1] : 'snacks';
+  if(m.key===lastSnack && 1+extrasOf(d).length < MAX_SNACKS) h += '<button class="linkbtn addslot" data-act="addSnack">+ Add another snack</button>';
+  return h + '</section>';
+}
+
+function renderToday(){
+  var k = ui.dayKey, d = ensureDay(k), isToday = k===todayKey();
+  var h = '<div class="topbar">'+
+    '<div class="daynav"><button class="navbtn" data-act="prevDay" aria-label="Previous day">‹</button>'+
+    '<div class="daylabel"><div class="dl-main">'+dayName(k)+'</div><div class="dl-sub">'+prettyDate(k)+'</div></div>'+
+    '<button class="navbtn" data-act="nextDay" aria-label="Next day">›</button></div>'+
+    (isToday ? '' : '<button class="btn outline sm todaylink" data-act="goToday">Back to Today</button>')+'</div>';
+  if(k===todayKey()) h += fastHTML();
+  h += budgetHTML(d);
+  h += dinnerHTML(d);
+  h += ideasHTML(d);
+  mealsOf(d).forEach(function(m){ h += mealHTML(d, m); });
+  document.getElementById('screen-today').innerHTML = h;
+}
+
+/* ================= RENDER: LIBRARY ================= */
+function renderLibrary(){
+  var h = '<div class="pagehead"><h1>Library</h1><button class="btn primary" data-act="newItem">+ New</button></div>'+
+    '<input id="libSearch" class="search" type="search" placeholder="Search your foods" autocomplete="off" value="'+esc(ui.libSearch)+'">'+
+    '<div class="chips" style="margin-top:10px">'+['All'].concat(CATS).map(function(c){ return '<button class="chip'+(ui.libCat===c?' on':'')+'" data-act="libCat" data-cat="'+esc(c)+'">'+esc(c)+'</button>'; }).join('')+'</div>'+
+    '<div id="libList"></div>';
+  document.getElementById('screen-library').innerHTML = h;
+  renderLibList();
+}
+function filterLib(cat, q){
+  q = (q||'').trim().toLowerCase();
+  return S.library.filter(function(it){
+    if(cat && cat!=='All' && it.cat!==cat) return false;
+    if(q && (it.name+' '+(it.serving||'')+' '+it.cat).toLowerCase().indexOf(q) < 0) return false;
+    return true;
+  }).sort(function(a,b){ return a.name.localeCompare(b.name); });
+}
+function renderLibList(){
+  var el = document.getElementById('libList'); if(!el) return;
+  var list = filterLib(ui.libCat, ui.libSearch);
+  var h = '<div class="libcount">'+list.length+' item'+(list.length===1?'':'s')+'</div>';
+  if(!list.length){
+    h += '<div class="card"><p class="hint" style="margin:0">'+(S.library.length<=1
+      ? 'Your library is just getting started. Tap <b>+ New</b> to add your go-to foods, proteins, sides, and dinner recipes.'
+      : 'No matches. Try another search or category, or add a new item.')+'</p></div>';
+  }
+  list.forEach(function(it){
+    h += '<button class="libitem" data-act="openItem" data-id="'+esc(it.id)+'"><div class="li-main"><div class="li-name">'+esc(it.name)+'</div>'+
+      '<div class="li-sub">'+esc(it.cat)+(it.serving?' · '+esc(it.serving):'')+(it.servings?' · makes '+fG(it.servings):'')+'</div>'+
+      '<div class="li-sub">'+fG(it.p)+'P · '+fG(it.c)+'C · '+fG(it.f)+'F</div></div>'+
+      '<div class="li-cal">'+fInt(it.cal)+'<small>cal</small></div></button>';
+  });
+  el.innerHTML = h;
+}
+
+/* ================= RENDER: TARGETS ================= */
+function boardHTML(){
+  var start = S.settings.start, tk = todayKey(), hits = 0, cells = '';
+  var heads = '<div></div>';
+  for(var i=0;i<7;i++) heads += '<div class="dh">'+parseKey(addDays(start,i)).toLocaleDateString('en-US',{weekday:'narrow'})+'</div>';
+  for(var w=0; w<6; w++){
+    cells += '<div class="wk">WK'+(w+1)+'</div>';
+    for(var dd=0; dd<7; dd++){
+      var k = addDays(start, w*7+dd), cls = 'cell';
+      if(k <= tk){ if(dayHit(S.days[k])){ cls += ' hit'; hits++; } else cls += ' miss'; }
+      if(k === tk) cls += ' today';
+      cells += '<button class="'+cls+'" data-act="gotoDay" data-key="'+k+'" aria-label="'+prettyDate(k)+'">'+parseKey(k).getDate()+'</button>';
+    }
+  }
+  return '<div class="card-h"><h2>Challenge board</h2><span class="tag">6 weeks</span></div>'+
+    '<div class="boardcount"><div class="bignum">'+hits+'</div><span>/42 days on target</span></div>'+
+    '<p class="hint" style="margin:0 0 10px;color:var(--blockMuted)">A day counts when everything you checked off as eaten lands within your tolerance.</p>'+
+    '<div class="board">'+heads+cells+'</div>'+
+    '<div class="legend"><span><i style="background:var(--pink)"></i>On target</span><span><i style="background:#2B3039"></i>Missed</span><span><i style="background:#20252D;border:1px solid #3A414C"></i>Upcoming</span></div>';
+}
+function fieldN(label, path, val, step){
+  return '<div class="field"><label>'+label+'</label><input type="number" inputmode="decimal" step="'+(step||'any')+'" data-path="'+path+'" value="'+esc(val)+'"></div>';
+}
+function renderTargets(){
+  var st = S.settings, T = st.targets, tol = st.tol;
+  var h = '<div class="pagehead"><h1>Targets</h1><span class="ver">v'+APP_VERSION+'</span></div>';
+  h += '<section class="card"><div class="card-h"><h2>Daily targets</h2></div><div class="grid4">'+
+    fieldN('Calories','targets.cal',T.cal)+fieldN('Protein (g)','targets.p',T.p)+fieldN('Carbs (g)','targets.c',T.c)+fieldN('Fat (g)','targets.f',T.f)+'</div></section>';
+  h += '<section class="card"><div class="card-h"><h2>Tolerance (±)</h2></div><div class="grid4">'+
+    fieldN('Calories ±','tol.cal',tol.cal)+fieldN('Protein ±g','tol.p',tol.p)+fieldN('Carbs ±g','tol.c',tol.c)+fieldN('Fat ±g','tol.f',tol.f)+'</div>'+
+    '<p class="hint" style="margin-top:0">A day counts as on target when every macro is within these ranges.</p></section>';
+  h += '<section class="card"><div class="card-h"><h2>New day setup</h2></div>'+
+    fieldN('Snack slots on new days (1–4)','snackSlots',st.snackSlots||1,1)+
+    '<div class="field"><label>Post-workout on new days</label><div class="seg">'+
+    '<button class="'+(st.postDefault!==false?'on':'')+'" data-act="postDefault" data-v="1">Include</button>'+
+    '<button class="'+(st.postDefault===false?'on':'')+'" data-act="postDefault" data-v="0">Leave off</button></div></div>'+
+    '<p class="hint" style="margin-top:0">Applies to days you haven’t opened yet. You can still add a snack or skip post-workout on any day.</p></section>';
+  h += '<section class="card"><div class="card-h"><h2>Dinner hold</h2></div>'+
+    '<p class="hint" style="margin-top:0">Until Lauryn picks dinner, this much is set aside so the rest of the day plans around it.</p><div class="grid4">'+
+    fieldN('Calories','hold.cal',S.settings.hold.cal)+fieldN('Protein (g)','hold.p',S.settings.hold.p)+fieldN('Carbs (g)','hold.c',S.settings.hold.c)+fieldN('Fat (g)','hold.f',S.settings.hold.f)+'</div></section>';
+  h += '<section class="card"><div class="card-h"><h2>Dinner share</h2></div>'+fieldN('Dinner % of what’s left (while other meals are open)','dinnerShare',st.dinnerShare,1)+
+    '<p class="hint" style="margin-top:0">Used for the suggested dinner portion. Once every other meal is planned or skipped, the suggestion closes out your whole day.</p></section>';
+  h += '<section class="card"><div class="card-h"><h2>Appearance</h2></div><div class="seg">'+
+    ['auto','light','dark'].map(function(t){ return '<button class="'+(st.theme===t?'on':'')+'" data-act="theme" data-theme="'+t+'">'+t+'</button>'; }).join('')+'</div></section>';
+  h += '<section class="card"><div class="card-h"><h2>Backup &amp; restore</h2></div>'+
+    '<p class="hint" style="margin-top:0">Backup copies everything (library, days, settings) as text. Paste it in a note or email to yourself.</p>'+
+    '<button class="btn primary wide" data-act="backup">Copy backup</button>'+
+    '<div class="field" style="margin-top:12px"><label>Backup text</label><textarea id="backupText" readonly placeholder="Tap Copy backup"></textarea></div>'+
+    '<div class="divider"></div>'+
+    '<div class="field"><label>Restore: paste backup text</label><textarea id="restoreText" placeholder="Paste your backup here"></textarea></div>'+
+    '<button class="btn dark wide" data-act="restore">Restore from text</button>'+
+    '<p class="hint">Restore replaces all data on this device.</p></section>';
+  h += '<div class="footer">Dwayne’s Macros v'+APP_VERSION+' · Data is saved on this device</div>';
+  document.getElementById('screen-targets').innerHTML = h;
+}
+
+/* ================= SHEETS ================= */
+var sheet = document.getElementById('sheet'), backdrop = document.getElementById('backdrop');
+var sheetHead = document.getElementById('sheetHead'), sheetBody = document.getElementById('sheetBody');
+function openSheet(title, html){
+  document.getElementById('sheetTitle').textContent = title;
+  sheetBody.innerHTML = html;
+  sheetBody.scrollTop = 0;
+  sheet.style.transform = '';
+  sheet.classList.add('open'); backdrop.classList.add('open');
+  document.body.classList.add('noscroll');
+}
+function closeSheet(){
+  sheet.style.transition = ''; sheet.style.transform = '';
+  sheet.classList.remove('open'); backdrop.classList.remove('open');
+  document.body.classList.remove('noscroll');
+  ui.sheet = null;
+  if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+}
+backdrop.addEventListener('click', closeSheet);
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && sheet.classList.contains('open')) closeSheet(); });
+
+var drag = null;
+sheetHead.addEventListener('pointerdown', function(e){
+  if(e.target.closest('button')) return;
+  drag = {y:e.clientY, t:Date.now(), dy:0, id:e.pointerId};
+  sheet.style.transition = 'none';
+  try { sheetHead.setPointerCapture(e.pointerId); } catch(_){}
+});
+sheetHead.addEventListener('pointermove', function(e){
+  if(!drag) return;
+  drag.dy = Math.max(0, e.clientY - drag.y);
+  sheet.style.transform = 'translateY('+drag.dy+'px)';
+});
+function endDrag(){
+  if(!drag) return;
+  var dy = drag.dy, v = dy / Math.max(1, Date.now()-drag.t);
+  drag = null; sheet.style.transition = '';
+  if(dy > 90 || (v > 0.5 && dy > 30)) closeSheet(); else sheet.style.transform = '';
+}
+sheetHead.addEventListener('pointerup', endDrag);
+sheetHead.addEventListener('pointercancel', endDrag);
+
+function whereLabel(w){ return w==='dinner'?'Dinner (main)': w==='side'?'Dinner side': mealLabel(w); }
+function openPicker(where){
+  var def = where==='dinner' ? 'Dinners' : where==='side' ? 'Sides & Extras' : 'All';
+  ui.sheet = {type:'picker', where:where, cat:def, q:''};
+  var title = where==='dinner' ? 'Pick dinner recipe' : where==='side' ? 'Add a dinner side' : 'Add to '+mealLabel(where);
+  var h = '<input id="pickSearch" class="search" type="search" placeholder="Search your library" autocomplete="off">'+
+    '<div class="chips" id="pickChips" style="margin-top:10px"></div><div id="pickList"></div>'+
+    '<button class="btn outline wide" style="margin-top:12px" data-act="newFrom">+ New item</button>';
+  openSheet(title, h);
+  renderPicker();
+}
+function renderPicker(){
+  var p = ui.sheet; if(!p || p.type!=='picker') return;
+  document.getElementById('pickChips').innerHTML = ['All'].concat(CATS).map(function(c){
+    return '<button class="chip'+(p.cat===c?' on':'')+'" data-act="pickCat" data-cat="'+esc(c)+'">'+esc(c)+'</button>'; }).join('');
+  var list = filterLib(p.cat, p.q);
+  var aff = affOf(p.where);
+  if(p.cat==='All' && aff.length) list.sort(function(a,b){ return (aff.indexOf(a.cat)<0) - (aff.indexOf(b.cat)<0) || a.name.localeCompare(b.name); });
+  var h = '';
+  if(!list.length) h += '<p class="hint">'+(p.cat!=='All' ? 'Nothing in '+esc(p.cat)+' yet. <button class="btn sm" data-act="pickCat" data-cat="All">Show all</button>' : 'No matches.')+'</p>';
+  list.forEach(function(it){
+    h += '<button class="pick" data-act="pickItem" data-id="'+esc(it.id)+'"><div class="li-main"><div class="li-name">'+esc(it.name)+'</div>'+
+      '<div class="li-sub">'+esc(it.serving||it.cat)+'</div><div class="li-sub">'+macLine(it)+'</div></div><span class="plus">+</span></button>';
+  });
+  document.getElementById('pickList').innerHTML = h;
+}
+
+function openItemSheet(id, opts){
+  opts = opts || {};
+  var it = id ? getItem(id) : null;
+  if(id && !it) return;
+  ui.sheet = {type:'item', id:id, thenAdd:opts.thenAdd||null};
+  var v = it || {name:'', serving:'', cat:opts.cat||'Snacks', cal:'', p:'', c:'', f:'', servings:''};
+  var h = '';
+  if(it){
+    h += '<h3 style="margin-bottom:10px">Add to '+esc(dayShort(ui.dayKey))+'</h3><div class="addgrid">'+
+      mealsOf(ensureDay(ui.dayKey)).map(function(m){ return '<button class="btn primary" data-act="addTo" data-where="'+m.key+'">'+esc(m.label)+'</button>'; }).join('')+
+      '<button class="btn dinner" data-act="addTo" data-where="dinner">Dinner (main)</button>'+
+      '<button class="btn dinner" data-act="addTo" data-where="side">Dinner side</button></div>'+
+      '<div class="divider"></div><h3 style="margin-bottom:10px">Edit item</h3>';
+  }
+  h += '<div class="field"><label>Name</label><input id="f_name" type="text" value="'+esc(v.name)+'" placeholder="e.g. Chicken burrito bowl"></div>'+
+    '<div class="field"><label>Serving description</label><input id="f_serving" type="text" value="'+esc(v.serving||'')+'" placeholder="e.g. 1 cup, 4 oz, 1 bowl"></div>'+
+    '<div class="field"><label>Category</label><select id="f_cat">'+CATS.map(function(c){ return '<option'+(c===v.cat?' selected':'')+'>'+esc(c)+'</option>'; }).join('')+'</select></div>'+
+    '<div class="grid4">'+
+    '<div class="field"><label>Calories</label><input id="f_cal" class="mf" type="number" inputmode="decimal" step="any" placeholder="auto" value="'+(it && !it.calAuto ? esc(v.cal) : '')+'"></div>'+
+    '<div class="field"><label>Protein (g)</label><input id="f_p" class="mf" type="number" inputmode="decimal" step="any" value="'+esc(v.p)+'"></div>'+
+    '<div class="field"><label>Carbs (g)</label><input id="f_c" class="mf" type="number" inputmode="decimal" step="any" value="'+esc(v.c)+'"></div>'+
+    '<div class="field"><label>Fat (g)</label><input id="f_f" class="mf" type="number" inputmode="decimal" step="any" value="'+esc(v.f)+'"></div></div>'+
+    '<div class="calc" id="calcHint"></div>'+
+    '<div class="field"><label>Recipe makes X servings (optional)</label><input id="f_serv" type="number" inputmode="decimal" step="any" value="'+esc(v.servings||'')+'" placeholder="e.g. 6"></div>'+
+    '<p class="hint" style="margin-top:-4px">Macros are per 1 serving. Leave calories blank to calculate P×4 + C×4 + F×9.</p>'+
+    '<button class="btn primary wide" style="margin-top:14px" data-act="saveItem">'+(it?'Save changes':(opts.thenAdd?'Save &amp; add to '+esc(whereLabel(opts.thenAdd)):'Save item'))+'</button>'+
+    (it ? '<button class="btn danger wide" style="margin-top:10px" data-act="deleteItem">Delete item</button>' : '');
+  openSheet(it ? it.name : 'New item', h);
+  updateCalcHint();
+}
+function updateCalcHint(){
+  var el = document.getElementById('calcHint'); if(!el) return;
+  var cal = num(document.getElementById('f_cal').value);
+  var p = num(document.getElementById('f_p').value)||0, c = num(document.getElementById('f_c').value)||0, f = num(document.getElementById('f_f').value)||0;
+  var a = autoCal(p,c,f);
+  el.textContent = cal===null ? 'Calories will be '+fG(a)+' (auto)' : (Math.abs(cal-a) > Math.max(25, a*0.15) ? 'Heads up: P/C/F add up to about '+fInt(a)+' cal' : '');
+}
+function saveItem(){
+  var s = ui.sheet; if(!s || s.type!=='item') return;
+  var name = document.getElementById('f_name').value.trim();
+  if(!name){ toast('Give it a name'); document.getElementById('f_name').focus(); return; }
+  var p = r1(num(document.getElementById('f_p').value)||0), c = r1(num(document.getElementById('f_c').value)||0), f = r1(num(document.getElementById('f_f').value)||0);
+  var calIn = num(document.getElementById('f_cal').value);
+  var serv = num(document.getElementById('f_serv').value);
+  var data = { name:name, serving:document.getElementById('f_serving').value.trim(), cat:document.getElementById('f_cat').value,
+    p:p, c:c, f:f, cal: calIn===null ? autoCal(p,c,f) : r1(calIn), calAuto: calIn===null, servings: serv && serv>0 ? r2(serv) : null };
+  var it;
+  if(s.id){
+    it = getItem(s.id); Object.assign(it, data);
+    var tk = todayKey();
+    Object.keys(S.days).forEach(function(k){
+      if(k < tk) return;
+      allEntries(S.days[k]).forEach(function(e){
+        if(e.itemId===it.id){ e.name=it.name; e.serving=it.serving; e.cat=it.cat; e.cal=it.cal; e.p=it.p; e.c=it.c; e.f=it.f; e.servings=it.servings; }
+      });
+    });
+    save(); closeSheet(); render(); toast('Saved');
+  } else {
+    it = Object.assign({id:uid()}, data);
+    S.library.push(it); save();
+    var then = s.thenAdd; closeSheet();
+    if(then) addToDay(then, it); else { render(); toast('Added to library'); }
+  }
+}
+
+/* ================= ACTIONS ================= */
+function addToDay(where, it, qty){
+  var d = ensureDay(ui.dayKey), e = makeEntry(it, qty||1);
+  if(where==='dinner') d.dinner = e;
+  else if(where==='side') d.sides.push(e);
+  else { d.meals[where].push(e); d.skipped[where] = false; }
+  ui.ideaPage = 0;
+  save(); render();
+  toast(it.name+' → '+whereLabel(where)+(ui.dayKey===todayKey()?'':' ('+dayShort(ui.dayKey)+')'));
+}
+function listFor(d, where){ return where==='sides' ? d.sides : d.meals[where]; }
+function findEntry(d, where, id){
+  if(where==='dinner') return d.dinner && d.dinner.uid===id ? d.dinner : null;
+  var l = listFor(d, where); for(var i=0;i<l.length;i++) if(l[i].uid===id) return l[i];
+  return null;
+}
+
+var handlers = {
+  tab: function(b){ ui.tab = b.dataset.tab; render(); window.scrollTo(0,0); },
+  prevDay: function(){ ui.dayKey = addDays(ui.dayKey,-1); ui.ideaMeal=null; ui.ideaPage=0; render(); },
+  nextDay: function(){ ui.dayKey = addDays(ui.dayKey,1); ui.ideaMeal=null; ui.ideaPage=0; render(); },
+  goToday: function(){ ui.dayKey = todayKey(); ui.ideaMeal=null; ui.ideaPage=0; render(); },
+  gotoDay: function(b){ ui.dayKey = b.dataset.key; ui.tab='today'; ui.ideaMeal=null; ui.ideaPage=0; render(); window.scrollTo(0,0); },
+  pick: function(b){ openPicker(b.dataset.where); },
+  pickCat: function(b){ ui.sheet.cat = b.dataset.cat; renderPicker(); },
+  pickItem: function(b){ var it=getItem(b.dataset.id), w=ui.sheet.where; closeSheet(); if(it) addToDay(w, it); },
+  newFrom: function(){
+    var w = ui.sheet.where;
+    var cat = w==='dinner'?'Dinners': w==='side'?'Sides & Extras': w==='breakfast'?'Breakfast': w==='lunch'?'Lunch': isSnack(w)?'Snacks': 'Shakes & Coffee';
+    openItemSheet(null, {cat:cat, thenAdd:w});
+  },
+  newFor: function(b){ var m=b.dataset.meal; openItemSheet(null, {cat:m==='breakfast'?'Breakfast':m==='lunch'?'Lunch':isSnack(m)?'Snacks':'Shakes & Coffee', thenAdd:m}); },
+  addSnack: function(){
+    var d = ensureDay(ui.dayKey), n = 2; d.extraSnacks = extrasOf(d);
+    while(d.extraSnacks.indexOf('snacks'+n) >= 0) n++;
+    if(1 + d.extraSnacks.length >= MAX_SNACKS) return;
+    var k = 'snacks'+n; d.extraSnacks.push(k); d.meals[k] = [];
+    ui.ideaPage = 0; save(); render(); toast(mealLabel(k)+' added');
+  },
+  removeSnack: function(b){
+    var d = ensureDay(ui.dayKey), k = b.dataset.meal;
+    if((d.meals[k]||[]).length) return;
+    d.extraSnacks = extrasOf(d).filter(function(x){ return x!==k; });
+    delete d.meals[k]; delete d.skipped[k];
+    if(d.plan && d.plan.picks) delete d.plan.picks[k];
+    ui.ideaPage = 0; save(); render();
+  },
+  inc: function(b){ step(b, 0.25); },
+  dec: function(b){ step(b, -0.25); },
+  eat: function(b){ var d=ensureDay(ui.dayKey), e=findEntry(d,b.dataset.where,b.dataset.uid); if(e){ e.eaten=!e.eaten; save(); render(); } },
+  remove: function(b){
+    var d = ensureDay(ui.dayKey), w = b.dataset.where;
+    if(w==='dinner') d.dinner = null;
+    else { var l = listFor(d,w), i = l.findIndex(function(e){ return e.uid===b.dataset.uid; }); if(i>=0) l.splice(i,1); }
+    ui.ideaPage = 0; save(); render();
+  },
+  fastToggle: function(){
+    if(S.fast.on){ var mins = Math.round((Date.now()-S.fast.start)/60000); S.fast = {on:false, start:null, hours:S.fast.hours}; save(); render(); toast('Fast ended · '+hm(mins*60000)); }
+    else { S.fast = {on:true, start:Date.now(), hours:S.settings.fastHours||16, notified:false}; save(); render(); toast(S.fast.hours+'h fast started'); }
+  },
+  fastHours: function(b){ var h = +b.dataset.h; if(S.fast.on){ S.fast.hours = h; S.fast.notified = false; } S.settings.fastHours = h; save(); render(); },
+  holdToggle: function(){ var d=ensureDay(ui.dayKey); d.noHold = !d.noHold; ui.ideaPage=0; save(); render(); },
+  useSuggest: function(b){ var d=ensureDay(ui.dayKey); if(d.dinner){ d.dinner.qty = r2(+b.dataset.q); save(); render(); toast('Dinner set to '+fQ(d.dinner.qty)+' servings'); } },
+  ideaMode: function(b){ S.settings.ideaMode = b.dataset.mode; save(); render(); },
+  planMix: function(b){ var d=ensureDay(ui.dayKey); if(mixMeal(d, b.dataset.meal)){ save(); render(); } },
+  planMixAll: function(){
+    var d = ensureDay(ui.dayKey), p = ensurePlan(d), open = openMeals(d);
+    var cur = planKey(p.picks, open); if(p.seenPlans.indexOf(cur) < 0) p.seenPlans.push(cur);
+    var r = genPlan(d, p.seenPlans);
+    if(p.seenPlans.indexOf(r.key) >= 0){ p.seenPlans = [cur]; r = genPlan(d, p.seenPlans); }
+    if(r.key === cur){ toast('That’s the only combo that fits. Add more foods for variety.'); return; }
+    p.picks = r.picks; p.seen = {}; p.seenPlans.push(r.key);
+    save(); render();
+  },
+  planAdd: function(b){ var d=ensureDay(ui.dayKey), m=b.dataset.meal; if(addPlanMeal(d,m)){ save(); render(); toast('Added to '+mealLabel(m)); } },
+  planAddAll: function(){
+    var d = ensureDay(ui.dayKey), n = 0;
+    openMeals(d).forEach(function(m){ if(addPlanMeal(d, m)) n++; });
+    if(n){ save(); render(); toast('Day planned ✓'); }
+  },
+  ideaMeal: function(b){ ui.ideaMeal = b.dataset.meal; ui.ideaPage = 0; render(); },
+  moreIdeas: function(){ ui.ideaPage++; render(); },
+  addIdea: function(b){
+    var o = ui.lastIdeas[+b.dataset.i], meal = ui.lastIdeaMeal; if(!o) return;
+    var d = ensureDay(ui.dayKey);
+    o.parts.forEach(function(p){ d.meals[meal].push(makeEntry(p.it, p.q)); });
+    d.skipped[meal] = false; ui.ideaMeal = null; ui.ideaPage = 0;
+    save(); render(); toast('Added to '+mealLabel(meal));
+  },
+  skip: function(b){ var d=ensureDay(ui.dayKey); d.skipped[b.dataset.meal]=true; ui.ideaMeal=null; ui.ideaPage=0; save(); render(); toast(mealLabel(b.dataset.meal)+' skipped'); },
+  unskip: function(b){ var d=ensureDay(ui.dayKey); d.skipped[b.dataset.meal]=false; save(); render(); },
+  newItem: function(){ openItemSheet(null, {cat: ui.libCat!=='All' ? ui.libCat : 'Snacks'}); },
+  openItem: function(b){ openItemSheet(b.dataset.id); },
+  libCat: function(b){ ui.libCat = b.dataset.cat; renderLibrary(); },
+  addTo: function(b){ var it=getItem(ui.sheet.id), w=b.dataset.where; closeSheet(); if(it) addToDay(w, it); },
+  saveItem: saveItem,
+  deleteItem: function(){
+    var it = getItem(ui.sheet.id); if(!it) return;
+    var msg = 'Delete "'+it.name+'" from your library? Days you already planned keep their entries.' + (it.id==='coffee' ? ' Your protein coffee will stop being added automatically.' : '');
+    if(!confirm(msg)) return;
+    S.library = S.library.filter(function(x){ return x.id!==it.id; });
+    save(); closeSheet(); render(); toast('Deleted');
+  },
+  closeSheet: closeSheet,
+  postDefault: function(b){ S.settings.postDefault = b.dataset.v==='1'; save(); renderTargets(); toast('Saved'); },
+  theme: function(b){ S.settings.theme = b.dataset.theme; save(); applyTheme(); renderTargets(); },
+  backup: function(){
+    var txt = JSON.stringify({app:'macro-planner', version:APP_VERSION, exported:new Date().toISOString(), data:S});
+    var ta = document.getElementById('backupText'); ta.value = txt;
+    copyText(txt, ta);
+  },
+  restore: function(){
+    var raw = document.getElementById('restoreText').value.trim();
+    if(!raw){ toast('Paste your backup text first'); return; }
+    var obj;
+    try { obj = JSON.parse(raw); } catch(e){ alert('That text isn’t a valid backup. Make sure you pasted the whole thing.'); return; }
+    var data = obj && obj.data ? obj.data : obj;
+    if(!data || !Array.isArray(data.library) || typeof data.days!=='object'){ alert('That doesn’t look like a Macro Planner backup.'); return; }
+    if(!confirm('Replace ALL data on this device with this backup? ('+data.library.length+' library items, '+Object.keys(data.days).length+' days)')) return;
+    S = normalize(data); save(); ui.dayKey = todayKey(); render(); toast('Restored ✓');
+  }
+};
+function step(b, delta){
+  var d = ensureDay(ui.dayKey), e = findEntry(d, b.dataset.where, b.dataset.uid); if(!e) return;
+  e.qty = Math.max(0.25, r2(e.qty + delta));
+  save(); render();
+}
+function copyText(txt, ta){
+  function fallback(){
+    try { ta.removeAttribute('readonly'); ta.focus(); ta.select(); ta.setSelectionRange(0, txt.length); var ok=document.execCommand('copy'); ta.setAttribute('readonly',''); toast(ok?'Backup copied ✓':'Select the text below and copy it'); }
+    catch(e){ toast('Select the text below and copy it'); }
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(txt).then(function(){ toast('Backup copied ✓ Paste it somewhere safe'); }, fallback);
+  } else fallback();
+}
+
+document.addEventListener('click', function(e){
+  var b = e.target.closest('[data-act]'); if(!b) return;
+  var fn = handlers[b.dataset.act]; if(fn){ e.preventDefault(); fn(b); }
+});
+document.addEventListener('input', function(e){
+  var t = e.target;
+  if(t.id==='libSearch'){ ui.libSearch = t.value; renderLibList(); }
+  else if(t.id==='pickSearch' && ui.sheet){ ui.sheet.q = t.value; renderPicker(); }
+  else if(t.classList && t.classList.contains('mf')) updateCalcHint();
+});
+document.addEventListener('change', function(e){
+  var t = e.target;
+  if(t.id==='fastCustom'){
+    var hv = num(t.value); if(hv===null || hv<1 || hv>72){ toast('Enter 1 to 72 hours'); return; }
+    hv = r1(hv); if(S.fast.on){ S.fast.hours = hv; S.fast.notified = false; } S.settings.fastHours = hv; save(); render(); return;
+  }
+  if(t.id==='fastStartTime' && S.fast.on && t.value){
+    var hmv = t.value.split(':'), d0 = new Date(); d0.setHours(+hmv[0], +hmv[1], 0, 0);
+    if(d0.getTime() > Date.now()) d0.setDate(d0.getDate()-1);
+    S.fast.start = d0.getTime(); S.fast.notified = false; save(); render(); toast('Start time updated'); return;
+  }
+  var path = t.dataset && t.dataset.path; if(!path) return;
+  var v = num(t.value);
+  if(v===null || v<0){ toast('Enter a number'); renderTargets(); return; }
+  var parts = path.split('.');
+  if(parts.length===2) S.settings[parts[0]][parts[1]] = r1(v);
+  else S.settings[parts[0]] = path==='snackSlots' ? Math.max(1, Math.min(MAX_SNACKS, Math.round(v))) : r1(v);
+  save();
+  var bw = document.getElementById('boardWrap'); if(bw) bw.innerHTML = boardHTML();
+  toast('Saved');
+});
+
+document.addEventListener('visibilitychange', function(){
+  if(document.visibilityState!=='visible') return;
+  tickFast();
+  var tk = todayKey();
+  if(tk !== ui.lastToday){ if(ui.dayKey===ui.lastToday) ui.dayKey = tk; ui.lastToday = tk; render(); }
+});
+
+render();
+})();
+</script>
+</body>
+</html>
