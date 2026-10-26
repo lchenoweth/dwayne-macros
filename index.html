@@ -248,6 +248,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
 .fast-edit{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;font-size:13px;color:var(--blockMuted)}
 .fast-edit input{width:auto}
 @media (prefers-reduced-motion: reduce){.toggle span{transition:none}}
+.btn.armed{background:var(--over);color:#fff;border-color:var(--over)}
 </style>
 </head>
 <body>
@@ -280,7 +281,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
 'use strict';
 
 /* ================= CONSTANTS ================= */
-var APP_VERSION = '1.1.1';
+var APP_VERSION = '1.1.2';
 var KEY = 'dwaynePlanner.v1';
 var MAC = ['cal','p','c','f'];
 var MEALS = [
@@ -1157,6 +1158,14 @@ function saveItem(){
 }
 
 /* ================= ACTIONS ================= */
+var armed = {key:null, t:0};
+function confirmTap(b, key, label){
+  if(armed.key === key && Date.now() - armed.t < 5000){ armed = {key:null, t:0}; return true; }
+  armed = {key:key, t:Date.now()};
+  var old = b.innerHTML; b.innerHTML = label; b.classList.add('armed');
+  setTimeout(function(){ if(armed.key === key){ armed = {key:null,t:0}; } if(b.isConnected){ b.innerHTML = old; b.classList.remove('armed'); } }, 5000);
+  return false;
+}
 function addToDay(where, it, qty){
   var d = ensureDay(ui.dayKey), e = makeEntry(it, qty||1);
   if(where==='dinner') d.dinner = e;
@@ -1217,9 +1226,9 @@ var handlers = {
     else { S.fast = {on:true, start:Date.now(), hours:S.settings.fastHours||16, notified:false}; save(); render(); toast(S.fast.hours+'h fast started'); }
   },
   fastHours: function(b){ var h = +b.dataset.h; if(S.fast.on){ S.fast.hours = h; S.fast.notified = false; } S.settings.fastHours = h; save(); render(); },
-  clearLibrary: function(){
+  clearLibrary: function(b){
     if(!S.library.length){ toast('Library is already empty'); return; }
-    if(!confirm('Delete all '+S.library.length+' foods from the library? This can’t be undone.')) return;
+    if(!confirmTap(b, 'clearLib', 'Tap again to delete all '+S.library.length)) return;
     S.library = []; save(); render(); toast('Library cleared');
   },
   holdToggle: function(){ var d=ensureDay(ui.dayKey); d.noHold = !d.noHold; ui.ideaPage=0; save(); render(); },
@@ -1257,10 +1266,10 @@ var handlers = {
   libCat: function(b){ ui.libCat = b.dataset.cat; renderLibrary(); },
   addTo: function(b){ var it=getItem(ui.sheet.id), w=b.dataset.where; closeSheet(); if(it) addToDay(w, it); },
   saveItem: saveItem,
-  deleteItem: function(){
+  deleteItem: function(b){
     var it = getItem(ui.sheet.id); if(!it) return;
     var msg = 'Delete "'+it.name+'" from your library? Days you already planned keep their entries.' + (it.id==='coffee' ? ' Your protein coffee will stop being added automatically.' : '');
-    if(!confirm(msg)) return;
+    if(!confirmTap(b, 'del:'+it.id, 'Tap again to delete')) return;
     S.library = S.library.filter(function(x){ return x.id!==it.id; });
     save(); closeSheet(); render(); toast('Deleted');
   },
@@ -1272,14 +1281,14 @@ var handlers = {
     var ta = document.getElementById('backupText'); ta.value = txt;
     copyText(txt, ta);
   },
-  restore: function(){
+  restore: function(b){
     var raw = document.getElementById('restoreText').value.trim();
     if(!raw){ toast('Paste your backup text first'); return; }
     var obj;
-    try { obj = JSON.parse(raw); } catch(e){ alert('That text isn’t a valid backup. Make sure you pasted the whole thing.'); return; }
+    try { obj = JSON.parse(raw); } catch(e){ toast('That isn’t a valid backup. Paste the whole thing.'); return; }
     var data = obj && obj.data ? obj.data : obj;
-    if(!data || !Array.isArray(data.library) || typeof data.days!=='object'){ alert('That doesn’t look like a Macro Planner backup.'); return; }
-    if(!confirm('Replace ALL data on this device with this backup? ('+data.library.length+' library items, '+Object.keys(data.days).length+' days)')) return;
+    if(!data || !Array.isArray(data.library) || typeof data.days!=='object'){ toast('That doesn’t look like a backup from this app.'); return; }
+    if(!confirmTap(b, 'restore', 'Tap again to replace all data')) return;
     S = normalize(data); save(); ui.dayKey = todayKey(); render(); toast('Restored ✓');
   }
 };
