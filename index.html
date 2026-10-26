@@ -280,7 +280,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
 'use strict';
 
 /* ================= CONSTANTS ================= */
-var APP_VERSION = '1.1.0';
+var APP_VERSION = '1.1.1';
 var KEY = 'dwaynePlanner.v1';
 var MAC = ['cal','p','c','f'];
 var MEALS = [
@@ -357,7 +357,7 @@ function dayShort(k){ var n=diffDays(todayKey(),k); return n===0?'Today':n===1?'
 function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
 
 /* ================= STATE ================= */
-var STARTER = [{"id": "d00", "name": "Grilled Nuggets (12 ct)", "serving": "12 pieces", "cat": "Chick-fil-A", "cal": 200, "p": 38, "c": 2, "f": 4.5, "servings": null, "calAuto": false}, {"id": "d01", "name": "Grilled Nuggets (8 ct)", "serving": "8 pieces", "cat": "Chick-fil-A", "cal": 130, "p": 25, "c": 1, "f": 3, "servings": null, "calAuto": false}, {"id": "d02", "name": "Grilled Chicken Sandwich", "serving": "1 sandwich", "cat": "Chick-fil-A", "cal": 390, "p": 28, "c": 45, "f": 11, "servings": null, "calAuto": false}, {"id": "d03", "name": "Grilled Cool Wrap", "serving": "1 wrap, no dressing", "cat": "Chick-fil-A", "cal": 350, "p": 42, "c": 29, "f": 13, "servings": null, "calAuto": false}, {"id": "d04", "name": "Egg White Grill", "serving": "1 sandwich", "cat": "Chick-fil-A", "cal": 290, "p": 27, "c": 31, "f": 7, "servings": null, "calAuto": false}, {"id": "d05", "name": "Market Salad w/ Grilled Filet", "serving": "no dressing", "cat": "Chick-fil-A", "cal": 320, "p": 28, "c": 26, "f": 12, "servings": null, "calAuto": false}, {"id": "d06", "name": "Kale Crunch Side", "serving": "1 side", "cat": "Chick-fil-A", "cal": 170, "p": 4, "c": 12, "f": 12, "servings": null, "calAuto": false}, {"id": "d07", "name": "Fruit Cup", "serving": "1 medium", "cat": "Chick-fil-A", "cal": 60, "p": 1, "c": 15, "f": 0, "servings": null, "calAuto": false}, {"id": "d08", "name": "Chicken Burrito Bowl", "serving": "chicken, white rice, black beans, fajita veggies, salsa, lettuce", "cat": "Chipotle", "cal": 570, "p": 46, "c": 72, "f": 12.5, "servings": null, "calAuto": false}, {"id": "d09", "name": "Double Chicken Salad Bowl", "serving": "2x chicken, black beans, fajita veggies, salsa, lettuce (no rice)", "cat": "Chipotle", "cal": 540, "p": 74, "c": 32, "f": 15.5, "servings": null, "calAuto": false}, {"id": "d10", "name": "Double Chicken Rice Bowl", "serving": "2x chicken, white rice, fajita veggies, salsa, lettuce", "cat": "Chipotle", "cal": 620, "p": 70, "c": 50, "f": 18, "servings": null, "calAuto": false}, {"id": "d11", "name": "Extra Chicken (side)", "serving": "4 oz scoop", "cat": "Chipotle", "cal": 180, "p": 32, "c": 0, "f": 7, "servings": null, "calAuto": false}, {"id": "d12", "name": "#4 Turkey Tom (8\")", "serving": "8\" French bread", "cat": "Jimmy John's", "cal": 510, "p": 25, "c": 57, "f": 20, "servings": null, "calAuto": false}, {"id": "d13", "name": "Turkey Tom Unwich", "serving": "lettuce wrap", "cat": "Jimmy John's", "cal": 250, "p": 15, "c": 5, "f": 17, "servings": null, "calAuto": false}, {"id": "d14", "name": "Core Power Elite 42g", "serving": "14 oz bottle", "cat": "QuikTrip", "cal": 230, "p": 42, "c": 6, "f": 3.5, "servings": null, "calAuto": false}, {"id": "d15", "name": "Core Power 26g", "serving": "14 oz bottle", "cat": "QuikTrip", "cal": 170, "p": 26, "c": 6, "f": 4.5, "servings": null, "calAuto": false}, {"id": "d16", "name": "Premier Protein shake", "serving": "11 oz carton", "cat": "QuikTrip", "cal": 160, "p": 30, "c": 4, "f": 3, "servings": null, "calAuto": false}, {"id": "d17", "name": "Fairlife Nutrition Plan", "serving": "11.5 oz bottle", "cat": "QuikTrip", "cal": 150, "p": 30, "c": 3, "f": 2.5, "servings": null, "calAuto": false}, {"id": "d18", "name": "Jack Link's Original Jerky", "serving": "1 oz", "cat": "QuikTrip", "cal": 70, "p": 10, "c": 6, "f": 1.5, "servings": null, "calAuto": false}, {"id": "d19", "name": "Oikos Pro yogurt cup", "serving": "5.3 oz cup (check flavor label)", "cat": "Snacks", "cal": 140, "p": 20, "c": 7, "f": 3, "servings": null, "calAuto": false}, {"id": "d20", "name": "Hard-boiled eggs", "serving": "2 large", "cat": "Proteins", "cal": 140, "p": 12, "c": 1, "f": 10, "servings": null, "calAuto": false}, {"id": "d21", "name": "Tuna pouch", "serving": "2.6 oz pouch", "cat": "Proteins", "cal": 70, "p": 17, "c": 0, "f": 1, "servings": null, "calAuto": false}, {"id": "d22", "name": "Banana", "serving": "1 medium", "cat": "Snacks", "cal": 105, "p": 1, "c": 27, "f": 0, "servings": null, "calAuto": false}, {"id": "d23", "name": "Apple", "serving": "1 medium", "cat": "Snacks", "cal": 95, "p": 0, "c": 25, "f": 0, "servings": null, "calAuto": false}];
+var STARTER = [];
 function defaultState(){
   return {
     schema:1,
@@ -1007,6 +1007,9 @@ function renderTargets(){
     '<p class="hint" style="margin-top:0">Used for the suggested dinner portion. Once every other meal is planned or skipped, the suggestion closes out your whole day.</p></section>';
   h += '<section class="card"><div class="card-h"><h2>Appearance</h2></div><div class="seg">'+
     ['auto','light','dark'].map(function(t){ return '<button class="'+(st.theme===t?'on':'')+'" data-act="theme" data-theme="'+t+'">'+t+'</button>'; }).join('')+'</div></section>';
+  h += '<section class="card"><div class="card-h"><h2>Library</h2></div>'+
+    '<p class="hint" style="margin-top:0">Removes every food from the library. Days already planned keep their entries.</p>'+
+    '<button class="btn danger wide" data-act="clearLibrary">Clear library ('+S.library.length+' items)</button></section>';
   h += '<section class="card"><div class="card-h"><h2>Backup &amp; restore</h2></div>'+
     '<p class="hint" style="margin-top:0">Backup copies everything (library, days, settings) as text. Paste it in a note or email to yourself.</p>'+
     '<button class="btn primary wide" data-act="backup">Copy backup</button>'+
@@ -1214,6 +1217,11 @@ var handlers = {
     else { S.fast = {on:true, start:Date.now(), hours:S.settings.fastHours||16, notified:false}; save(); render(); toast(S.fast.hours+'h fast started'); }
   },
   fastHours: function(b){ var h = +b.dataset.h; if(S.fast.on){ S.fast.hours = h; S.fast.notified = false; } S.settings.fastHours = h; save(); render(); },
+  clearLibrary: function(){
+    if(!S.library.length){ toast('Library is already empty'); return; }
+    if(!confirm('Delete all '+S.library.length+' foods from the library? This can’t be undone.')) return;
+    S.library = []; save(); render(); toast('Library cleared');
+  },
   holdToggle: function(){ var d=ensureDay(ui.dayKey); d.noHold = !d.noHold; ui.ideaPage=0; save(); render(); },
   useSuggest: function(b){ var d=ensureDay(ui.dayKey); if(d.dinner){ d.dinner.qty = r2(+b.dataset.q); save(); render(); toast('Dinner set to '+fQ(d.dinner.qty)+' servings'); } },
   ideaMode: function(b){ S.settings.ideaMode = b.dataset.mode; save(); render(); },
