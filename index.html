@@ -249,6 +249,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
 .fast-edit input{width:auto}
 @media (prefers-reduced-motion: reduce){.toggle span{transition:none}}
 .btn.armed{background:var(--over);color:#fff;border-color:var(--over)}
+.sharerow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:-4px 0 10px}
 </style>
 </head>
 <body>
@@ -281,7 +282,7 @@ input,select,textarea{font-family:inherit;font-size:16px;color:var(--text)}
 'use strict';
 
 /* ================= CONSTANTS ================= */
-var APP_VERSION = '1.1.2';
+var APP_VERSION = '1.2.0';
 var KEY = 'dwaynePlanner.v1';
 var MAC = ['cal','p','c','f'];
 var MEALS = [
@@ -797,6 +798,7 @@ function dinnerHTML(d){
       h += '<div class="suggest"><div class="s-txt"><b>No dinner hold today</b><div class="s-sub">Eating out or skipping? Add it as a meal or side when you know.</div></div><button class="btn sm" data-act="holdToggle">Hold again</button></div>';
     }
     h += '<button class="btn primary wide" data-act="pick" data-where="dinner">+ Pick tonight’s recipe</button>';
+    h += '<button class="btn outline wide" style="margin-top:8px" data-act="pasteDinner">Paste dinner from a text</button>';
     if(holdOn(d)) h += '<button class="linkbtn" data-act="holdToggle" style="margin-top:6px">Not eating at home tonight</button>';
     if(d.sides.length){ h += '<div class="subhead">Sides</div>'; d.sides.forEach(function(e){ h += entryHTML(e,'sides'); }); }
     return h + '</section>';
@@ -809,6 +811,7 @@ function dinnerHTML(d){
     '<div class="servrow"><div class="stepper"><button data-act="dec" data-where="dinner" data-uid="'+e.uid+'">−</button><span>'+fQ(e.qty)+'</span><button data-act="inc" data-where="dinner" data-uid="'+e.uid+'">+</button></div>'+
     '<div class="ofserv">'+(e.servings ? 'of '+fG(e.servings)+' servings' : 'servings')+'</div></div></div>';
 
+  h += '<div class="sharerow"><button class="linkbtn" data-act="shareDinner">Share dinner</button><button class="linkbtn" data-act="pasteDinner">Paste a different dinner</button></div>';
   var sg = dinnerSuggestion(d);
   if(sg){
     if(sg.full){
@@ -1157,6 +1160,41 @@ function saveItem(){
   }
 }
 
+/* ================= SHARE DINNER ================= */
+function dinnerCode(e){
+  var nm = String(e.name||'Dinner').replace(/[~\n\r]/g,' ').trim();
+  return 'DINNER~'+nm+'~'+r1(e.cal)+'~'+r1(e.p)+'~'+r1(e.c)+'~'+r1(e.f)+'~'+(e.servings?r2(e.servings):'')+'~'+String(e.serving||'').replace(/[~\n\r]/g,' ').trim()+'~';
+}
+function parseDinnerCode(txt){
+  var m = /DINNER~([^~\n]+)~([\d.]+)~([\d.]+)~([\d.]+)~([\d.]+)~([\d.]*)(?:~([^~\n]*)~)?/.exec(String(txt||''));
+  if(!m) return null;
+  return {name:m[1].trim(), cal:+m[2], p:+m[3], c:+m[4], f:+m[5], servings:m[6]?+m[6]:null, serving:(m[7]||'').trim()};
+}
+function openShareSheet(code){
+  openSheet('Share dinner', '<p class="hint" style="margin-top:0">Text this code to share tonight’s dinner. The other app sets the portion on its own.</p>'+
+    '<div class="field"><textarea id="shareCode" readonly style="min-height:90px">'+esc(code)+'</textarea></div>'+
+    '<button class="btn primary wide" data-act="copyShare">Copy code</button>');
+}
+function openPasteSheet(prefill){
+  openSheet('Paste dinner', '<p class="hint" style="margin-top:0">Long-press the box, tap Paste, then tap Use this dinner. You can paste the whole text message.</p>'+
+    '<div class="field"><textarea id="pasteCode" placeholder="DINNER~…" style="min-height:90px">'+esc(prefill||'')+'</textarea></div>'+
+    '<button class="btn primary wide" data-act="usePasted">Use this dinner</button>');
+}
+function applySharedDinner(info){
+  var it = null;
+  for(var i=0;i<S.library.length;i++){ if(S.library[i].cat==='Dinners' && S.library[i].name.toLowerCase()===info.name.toLowerCase()){ it = S.library[i]; break; } }
+  var added = false;
+  if(it){ it.cal=r1(info.cal); it.p=r1(info.p); it.c=r1(info.c); it.f=r1(info.f); if(info.servings) it.servings=info.servings; if(info.serving) it.serving=info.serving; }
+  else { it = {id:uid(), name:info.name, serving:info.serving||'1 serving', cat:'Dinners', cal:r1(info.cal), p:r1(info.p), c:r1(info.c), f:r1(info.f), servings:info.servings||null, calAuto:false}; S.library.push(it); added = true; }
+  var d = ensureDay(ui.dayKey);
+  d.dinner = makeEntry(it, 1);
+  if(d.noHold) d.noHold = false;
+  var sg = dinnerSuggestion(d);
+  if(sg && sg.q) d.dinner.qty = r2(sg.q);
+  ui.ideaPage = 0; save(); closeSheet(); render();
+  toast(info.name+' set · '+fQ(d.dinner.qty)+' serving'+(d.dinner.qty===1?'':'s')+(added?' · saved to library':''));
+}
+
 /* ================= ACTIONS ================= */
 var armed = {key:null, t:0};
 function confirmTap(b, key, label){
@@ -1232,6 +1270,29 @@ var handlers = {
     S.library = []; save(); render(); toast('Library cleared');
   },
   holdToggle: function(){ var d=ensureDay(ui.dayKey); d.noHold = !d.noHold; ui.ideaPage=0; save(); render(); },
+  shareDinner: function(){
+    var d = ensureDay(ui.dayKey); if(!d.dinner) return;
+    var code = dinnerCode(d.dinner);
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(code).then(function(){ toast('Dinner code copied. Paste it in a text.'); }, function(){ openShareSheet(code); });
+    } else openShareSheet(code);
+  },
+  copyShare: function(){ var ta=document.getElementById('shareCode'); if(ta) copyText(ta.value, ta); },
+  pasteDinner: function(){
+    if(navigator.clipboard && navigator.clipboard.readText && window.isSecureContext){
+      var done = false, timer = setTimeout(function(){ if(!done){ done = true; openPasteSheet(''); } }, 1500);
+      navigator.clipboard.readText().then(function(t){
+        var info = parseDinnerCode(t);
+        if(info){ clearTimeout(timer); done = true; applySharedDinner(info); }
+        else if(!done){ clearTimeout(timer); done = true; openPasteSheet(''); }
+      }, function(){ if(!done){ clearTimeout(timer); done = true; openPasteSheet(''); } });
+    } else openPasteSheet('');
+  },
+  usePasted: function(){
+    var ta=document.getElementById('pasteCode'), info=parseDinnerCode(ta && ta.value);
+    if(!info){ toast('No dinner code found. Paste the text that starts with DINNER~'); return; }
+    applySharedDinner(info);
+  },
   useSuggest: function(b){ var d=ensureDay(ui.dayKey); if(d.dinner){ d.dinner.qty = r2(+b.dataset.q); save(); render(); toast('Dinner set to '+fQ(d.dinner.qty)+' servings'); } },
   ideaMode: function(b){ S.settings.ideaMode = b.dataset.mode; save(); render(); },
   planMix: function(b){ var d=ensureDay(ui.dayKey); if(mixMeal(d, b.dataset.meal)){ save(); render(); } },
@@ -1299,11 +1360,11 @@ function step(b, delta){
 }
 function copyText(txt, ta){
   function fallback(){
-    try { ta.removeAttribute('readonly'); ta.focus(); ta.select(); ta.setSelectionRange(0, txt.length); var ok=document.execCommand('copy'); ta.setAttribute('readonly',''); toast(ok?'Backup copied ✓':'Select the text below and copy it'); }
+    try { ta.removeAttribute('readonly'); ta.focus(); ta.select(); ta.setSelectionRange(0, txt.length); var ok=document.execCommand('copy'); ta.setAttribute('readonly',''); toast(ok?'Copied ✓':'Select the text and copy it'); }
     catch(e){ toast('Select the text below and copy it'); }
   }
   if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(txt).then(function(){ toast('Backup copied ✓ Paste it somewhere safe'); }, fallback);
+    navigator.clipboard.writeText(txt).then(function(){ toast(ta && ta.id==='shareCode' ? 'Dinner code copied' : 'Backup copied ✓ Paste it somewhere safe'); }, fallback);
   } else fallback();
 }
 
